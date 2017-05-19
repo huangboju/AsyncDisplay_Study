@@ -179,3 +179,20 @@ extension NSRange {
         return location == NSNotFound
     }
 }
+
+struct RouterKeys {
+
+}
+
+struct EventName {
+    static let toolBarEvent = "toolBarEvent"
+}
+
+extension UIResponder {
+
+    func router(with eventName: String, userInfo: [String: Any]) {
+        if let next = next {
+            next.router(with: eventName, userInfo: userInfo)
+        }
+    }
+}

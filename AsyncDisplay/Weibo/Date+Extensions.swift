@@ -3,8 +3,6 @@
 //  Created by KingCQ on 16/8/29.
 //
 
-import DateTools
-
 extension Date {
     var timeAgo: String {
         if minutesAgo() < 0.5 {

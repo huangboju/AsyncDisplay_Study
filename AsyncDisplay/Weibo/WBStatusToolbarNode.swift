@@ -6,12 +6,21 @@
 //  Copyright © 2017年 伯驹 黄. All rights reserved.
 //
 
+extension RouterKeys {
+    static let retweet = "retweet"
+    static let comments = "comments"
+    static let likes = "likes"
+}
+
+class ToolBarButton: ASButtonNode {
+    var key = ""
+}
 
 class WBStatusToolbarNode: ASDisplayNode {
     
-    private var commentsNode: ASButtonNode!
-    private var likesNode: ASButtonNode!
-    private var retweetNode: ASButtonNode!
+    private var commentsNode: ToolBarButton!
+    private var likesNode: ToolBarButton!
+    private var retweetNode: ToolBarButton!
     private var line1: GradientLineNode!
     private var line2: GradientLineNode!
     
@@ -23,14 +32,16 @@ class WBStatusToolbarNode: ASDisplayNode {
         borderColor = kWBCellLineColor.cgColor
 
         retweetNode = createButton(with: item.retweet)
+        retweetNode.key = RouterKeys.retweet
         addSubnode(retweetNode)
 
         commentsNode = createButton(with: item.commtens)
-        commentsNode.addTarget(self, action: #selector(commentsAction), forControlEvents: .touchUpInside)
+        commentsNode.key = RouterKeys.comments
         addSubnode(commentsNode)
 
 
         likesNode = createButton(with: item.likes)
+        likesNode.key = RouterKeys.likes
         addSubnode(likesNode)
 
         // TODO: 线
@@ -41,9 +52,11 @@ class WBStatusToolbarNode: ASDisplayNode {
         addSubnode(line2)
     }
 
-    func createButton(with item: (UIImage?, NSAttributedString)) -> ASButtonNode {
-        let button = ASButtonNode()
+    func createButton(with item: (UIImage?, NSAttributedString)) -> ToolBarButton {
+        let button = ToolBarButton()
+        button.addTarget(self, action: #selector(commentsAction), forControlEvents: .touchUpInside)
         button.contentSpacing = 3
+        button.hitTestSlop = UIEdgeInsetsMake(-10, -20, -10, -20)
         button.setImage(item.0, for: .normal)
         button.setAttributedTitle(item.1, for: .normal)
         return button
@@ -68,7 +81,7 @@ class WBStatusToolbarNode: ASDisplayNode {
         return stackNode
     }
 
-    func commentsAction() {
-
+    func commentsAction(sender: ToolBarButton) {
+        sender.view.router(with: sender.key, userInfo: [sender.key: ""])
     }
 }

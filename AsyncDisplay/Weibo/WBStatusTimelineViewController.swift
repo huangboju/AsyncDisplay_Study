@@ -73,6 +73,28 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
         tableNode?.view.separatorStyle = .none
     }
 
+    override func router(with eventName: String, userInfo: [String: Any]) {
+        let message: String
+        switch eventName {
+        case RouterKeys.likes:
+            message = "喜欢"
+        case RouterKeys.comments:
+            message = "评论"
+        case RouterKeys.retweet:
+            message = "转发"
+        default:
+            message = "错误"
+        }
+        showAlert(message: message)
+    }
+
+    func showAlert(title: String? = nil, message: String? = nil) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "好", style: .default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
+    }
+
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
