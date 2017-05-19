@@ -40,6 +40,7 @@ class WBStatusTitleNode: ASDisplayNode {
 
         // Adjust size
         mainStack.style.height = ASDimensionMakeWithPoints(kWBCellTitleHeight)
-        return mainStack
+
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: kWBCellPadding, bottom: 0, right: 0), child: mainStack)
     }
 }

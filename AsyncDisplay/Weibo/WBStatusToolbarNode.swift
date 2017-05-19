@@ -89,6 +89,7 @@ class WBStatusToolbarNode: ASDisplayNode {
     init(item: ToolBarModel) {
         super.init()
 
+        backgroundColor = UIColor.white
         borderWidth = onePix
         borderColor = kWBCellLineColor.cgColor
 

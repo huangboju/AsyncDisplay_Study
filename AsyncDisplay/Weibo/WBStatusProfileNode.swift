@@ -15,8 +15,6 @@ class WBStatusProfileNode: ASDisplayNode {
     init(item: ProfileModel) {
         super.init()
 
-        backgroundColor = UIColor.white
-
         // avatarNode
         avatarNode = WBStatusPicNode(badgeName: item.badgeName)
         avatarNode.isLayerBacked = true
@@ -48,6 +46,6 @@ class WBStatusProfileNode: ASDisplayNode {
         let vstack = ASStackLayoutSpec(direction: .vertical, spacing: 5, justifyContent: .start, alignItems: .start, children: [nameNode, sourceNode])
         let mainStack = ASStackLayoutSpec(direction: .horizontal, spacing: 14, justifyContent: .start, alignItems: .start, children: [avatarNode, vstack])
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0), child: mainStack)
+        return mainStack
     }
 }

@@ -34,7 +34,7 @@ class WeiBoCellNode: ASCellNode {
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 8, left: 0, bottom: 0, right: 0), child: weiBoMainNode)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: kWBCellTopMargin, left: 0, bottom: 0, right: 0), child: weiBoMainNode)
     }
 }
 
@@ -86,6 +86,7 @@ class WeiBoMainNode: ASDisplayNode {
 
         if let retweetText = item.retweetText {
             retweetBgNode = ASDisplayNode()
+            retweetBgNode?.isLayerBacked = true
             retweetBgNode?.backgroundColor = kWBCellBackgroundColor
             addSubnode(retweetBgNode!)
 
@@ -99,7 +100,7 @@ class WeiBoMainNode: ASDisplayNode {
             let count = 3
             for (i, item) in picsMode.enumerated() {
                 let imageNode = WBStatusPicNode(badgeName: item.badgeName)
-                imageNode.backgroundColor = ASDisplayNodeDefaultPlaceholderColor()
+                imageNode.backgroundColor = UIColor(white: 0.8, alpha: 1)
                 imageNode.style.width = side
                 imageNode.style.height = side
                 // TODO: 微博的图片是WebP Image
@@ -125,25 +126,27 @@ class WeiBoMainNode: ASDisplayNode {
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 
-        var children: [ASLayoutElement] = []
-
-        let mainInsets = UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12)
+        var children: [ASLayoutElement] = [vipBackgroundNode]
 
         // titleView
         if let titleView = titleNode {
             children.append(titleView)
         }
 
-        // profileNode
-        children.append(profileNode)
+        let headerStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: children)
 
-        // textNode
-        textNode.style.spacingBefore = 10
-        children.append(textNode)
+        // profileNode textNode
+        textNode.style.spacingBefore = kWBCellPaddingText
+        children = [profileNode, textNode]
+
+        let profileAndTextStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: children)
+        let top: CGFloat = titleNode != nil ? 12 : 0
+        let profileAndTextInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: top, left: kWBCellPadding, bottom: 0, right: kWBCellPadding), child: profileAndTextStack)
+
+        children = []
 
         // retweetTextNode
         if let retweetTextNode = retweetTextNode {
-            retweetTextNode.style.spacingBefore = 15
             children.append(retweetTextNode)
         }
 
@@ -157,6 +160,7 @@ class WeiBoMainNode: ASDisplayNode {
             let picsStack = ASStackLayoutSpec(direction: .vertical, spacing: 4, justifyContent: .start, alignItems: .start, children: vPicNodes)
 
             children.append(picsStack)
+            picsStack.style.spacingBefore = 8
         }
 
         if let cardNode = cardNode {
@@ -164,15 +168,15 @@ class WeiBoMainNode: ASDisplayNode {
             children.append(cardNode)
         }
 
-        let headerStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: children)
+        let retweetStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: children)
+        let retweetInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12), child: retweetStack)
+        
+        let footerStack = ASStackLayoutSpec(direction: .vertical, spacing: kWBCellPaddingText, justifyContent: .start, alignItems: .start, children: [retweetInset, toolBarNode])
 
-        // profileStack
-        let profileInset = ASInsetLayoutSpec(insets: mainInsets, child: headerStack)
-        children = [vipBackgroundNode, profileInset]
+        let retweetBgLayout = ASBackgroundLayoutSpec(child: footerStack, background: retweetBgNode ?? ASLayoutSpec())
+        retweetBgLayout.style.spacingBefore = kWBCellPaddingText
 
-        // toolBar
-        toolBarNode.style.spacingBefore = 10
-        children.append(toolBarNode)
+        children = [headerStack, profileAndTextInset, retweetBgLayout]
 
         let mainStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: children)
 
