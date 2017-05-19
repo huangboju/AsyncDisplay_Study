@@ -7,6 +7,7 @@
 //
 
 import SwiftyJSON
+import DateTools
 
 /// 认证方式
 enum UserModelVerifyType: Int {
@@ -155,7 +156,8 @@ struct MainModel {
         
         let sourceText = NSMutableAttributedString()
         // TODO: 时间
-        let createTime = ""
+        let createTime = dict["created_at"]?.stringValue.formatToTime ?? ""
+
         // 时间
         if !createTime.isEmpty {
             let timeText = NSMutableAttributedString(string: createTime)

@@ -151,4 +151,13 @@ extension String {
     func nsrange(of str: String) -> NSRange {
         return (self as NSString).range(of: str)
     }
+
+    var formatToTime: String {
+        // https://iosdevcenters.blogspot.com/2016/03/nsdateformatter-in-swift.html
+
+        let formatter = WBStatusHelper.dateFormatter
+        formatter.dateFormat = "E MMM MM HH:mm:ss Z yyyy"
+        let date = formatter.date(from: self) ?? Date()
+        return date.timeAgo
+    }
 }

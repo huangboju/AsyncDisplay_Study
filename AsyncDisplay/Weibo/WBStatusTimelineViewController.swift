@@ -9,9 +9,11 @@
 import SwiftyJSON
 
 class WBStatusTimelineViewController: ASViewController<ASTableNode> {
-    
-    fileprivate var tableNode: ASTableNode!
-    
+
+    fileprivate var tableNode: ASTableNode? {
+        return node
+    }
+
     fileprivate var datas: [MainModel] = []
 
     fileprivate var page = -1
@@ -21,10 +23,9 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
     }
 
     init() {
-        tableNode = ASTableNode(style: .plain)
-        super.init(node: tableNode)
-        tableNode.delegate = self
-        tableNode.dataSource = self
+        super.init(node: ASTableNode(style: .plain))
+        tableNode?.delegate = self
+        tableNode?.dataSource = self
     }
 
     func insertNewRows(_ n: Int) {
@@ -36,12 +37,15 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
             let path = IndexPath(row: row, section: section)
             indexPaths.append(path)
         }
-        tableNode.insertRows(at: indexPaths, with: .none)
+        tableNode?.insertRows(at: indexPaths, with: .none)
     }
 
     func loadPage(with context: ASBatchContext?) {
         page += 1
-        page = min(7, page)
+        if page > 7 {
+            page = Int(arc4random_uniform(7))
+        }
+
         guard let path = Bundle.main.path(forResource: "weibo_\(page).json", ofType: "") else {
             return
         }
@@ -66,7 +70,7 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
         super.viewDidLoad()
         title = "微博"
         view.backgroundColor = kWBCellBackgroundColor
-        tableNode.view.separatorStyle = .none
+        tableNode?.view.separatorStyle = .none
     }
 
     required init?(coder aDecoder: NSCoder) {

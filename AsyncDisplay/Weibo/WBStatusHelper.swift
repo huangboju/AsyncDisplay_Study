@@ -16,6 +16,15 @@ extension Bundle {
 let WBStatusHelper = WBStatusSingleTon.shared
 
 class WBStatusSingleTon {
+    private var _dateFormatter: DateFormatter?
+    
+    var dateFormatter: DateFormatter {
+        if _dateFormatter == nil {
+            _dateFormatter = DateFormatter()
+        }
+        return _dateFormatter!
+    }
+
     static let shared = WBStatusSingleTon()
     
     private var _hrefRegex: NSRegularExpression?
