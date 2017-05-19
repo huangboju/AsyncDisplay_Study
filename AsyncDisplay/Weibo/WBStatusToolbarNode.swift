@@ -89,6 +89,9 @@ class WBStatusToolbarNode: ASDisplayNode {
     init(item: ToolBarModel) {
         super.init()
 
+        borderWidth = onePix
+        borderColor = kWBCellLineColor.cgColor
+
         retweetNode = WBRetweetNode(retweets: item.retweetNode)
         addSubnode(retweetNode)
 
@@ -110,8 +113,9 @@ class WBStatusToolbarNode: ASDisplayNode {
         let gradientLine = GradientLineNode()
         gradientLine.isLayerBacked = true
         gradientLine.isOpaque = false
-        gradientLine.style.minHeight = ASDimensionMake(20)
-        gradientLine.style.width = ASDimensionMake(1)
+        gradientLine.style.alignSelf = .start
+        gradientLine.style.height = ASDimensionMake(35)
+        gradientLine.style.width = ASDimensionMake(onePix)
         return gradientLine
     }
 
@@ -119,8 +123,8 @@ class WBStatusToolbarNode: ASDisplayNode {
 
         let stackNode = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .spaceAround, alignItems: .center, children: [retweetNode, line1, commentsNode, line2, likesNode])
 
-        stackNode.style.height = ASDimensionMakeWithPoints(35)
-        stackNode.style.width = ASDimensionMakeWithPoints(screenW)
+        stackNode.style.height = ASDimensionMake(35)
+        stackNode.style.width = ASDimensionMake(screenW)
         return stackNode
     }
 }

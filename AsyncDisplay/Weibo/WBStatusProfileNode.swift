@@ -7,8 +7,7 @@
 //
 
 class WBStatusProfileNode: ASDisplayNode {
-    private var avatarNode: ASNetworkImageNode!
-    private var badgeNode: ASImageNode?
+    private var avatarNode: WBStatusPicNode!
 
     private var nameNode: ASTextNode!
     private var sourceNode: ASTextNode!
@@ -16,27 +15,21 @@ class WBStatusProfileNode: ASDisplayNode {
     init(item: ProfileModel) {
         super.init()
 
+        backgroundColor = UIColor.white
+
         // avatarNode
-        avatarNode = ASNetworkImageNode()
+        avatarNode = WBStatusPicNode(badgeName: item.badgeName)
         avatarNode.isLayerBacked = true
         avatarNode.backgroundColor = ASDisplayNodeDefaultPlaceholderColor()
-        avatarNode.style.width = ASDimensionMakeWithPoints(40)
-        avatarNode.style.height = ASDimensionMakeWithPoints(40)
-        avatarNode.cornerRadius = 20
+        let side: CGFloat = 40
+        avatarNode.style.width = ASDimensionMake(side)
+        avatarNode.style.height = ASDimensionMake(side)
+        avatarNode.cornerRadius = side / 2
         avatarNode.url = item.avatarUrl
         avatarNode.imageModificationBlock = { image in
-            return image.corner(with: 40)
+            return image.corner(with: side)
         }
         addSubnode(avatarNode)
-
-        // badge
-        if let badge = item.badge {
-            badgeNode = ASImageNode()
-            badgeNode?.isLayerBacked = true
-            badgeNode?.image = badge
-            badgeNode?.contentMode = .scaleAspectFit
-            addSubnode(badgeNode!)
-        }
 
         // nameNode
         nameNode = ASTextNode()
@@ -52,16 +45,9 @@ class WBStatusProfileNode: ASDisplayNode {
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 
-        var _avatarNode: ASLayoutElement = avatarNode
-
-        if let badgeNode = badgeNode {
-            badgeNode.style.preferredSize = CGSize(width: 14, height: 14)
-            badgeNode.style.layoutPosition = CGPoint(x: 28, y: 28)
-            _avatarNode = ASAbsoluteLayoutSpec(children: [avatarNode, badgeNode])
-        }
-
         let vstack = ASStackLayoutSpec(direction: .vertical, spacing: 5, justifyContent: .start, alignItems: .start, children: [nameNode, sourceNode])
+        let mainStack = ASStackLayoutSpec(direction: .horizontal, spacing: 14, justifyContent: .start, alignItems: .start, children: [avatarNode, vstack])
 
-        return ASStackLayoutSpec(direction: .horizontal, spacing: 14, justifyContent: .start, alignItems: .start, children: [_avatarNode, vstack])
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 0, bottom: 0, right: 0), child: mainStack)
     }
 }

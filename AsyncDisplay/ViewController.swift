@@ -6,7 +6,7 @@
 //  Copyright © 2017年 伯驹 黄. All rights reserved.
 //
 
-import UIKit
+
 
 class ViewController: UIViewController {
     fileprivate lazy var tableView: UITableView = {
@@ -47,6 +47,9 @@ class ViewController: UIViewController {
             SocialController.self,
             PhotoFeedNodeController.self,
             WBStatusTimelineViewController.self
+        ],
+        [
+            PromiseKitController.self
         ]
     ]
 
@@ -55,7 +58,6 @@ class ViewController: UIViewController {
         title = "AsyncDisplayKit"
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell")
         view.addSubview(tableView)
-        
     }
 
     override func didReceiveMemoryWarning() {

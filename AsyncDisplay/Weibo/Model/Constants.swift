@@ -10,6 +10,7 @@
 let screenBounds = UIScreen.main.bounds
 let screenW = screenBounds.width
 let screenH = screenBounds.height
+let onePix = 1 / UIScreen.main.scale
 
 // 宽高
 let kWBCellTopMargin: CGFloat = 8      // cell 顶部灰色留白
@@ -48,7 +49,7 @@ let kWBCellBackgroundColor = UIColor(hex: 0xF2F2F2)    // Cell背景灰色
 let kWBCellHighlightColor = UIColor(hex: 0xF0F0F0)     // Cell高亮时灰色
 let kWBCellInnerViewColor = UIColor(hex: 0xF7F7F7)   // Cell内部卡片灰色
 let kWBCellInnerViewHighlightColor =  UIColor(hex: 0xF0F0F0) // Cell内部卡片高亮时灰色
-let kWBCellLineColor = UIColor(white: 0, alpha: 0.09) //线条颜色
+let kWBCellLineColor = UIColor(hex: 0xE8E8E8) //线条颜色
 
 
 

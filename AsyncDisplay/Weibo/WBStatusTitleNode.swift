@@ -9,7 +9,8 @@
 class WBStatusTitleNode: ASDisplayNode {
     let iconNode = ASNetworkImageNode()
     let countNode = ASTextNode()
-    
+    let lineNode = ASDisplayNode()
+
     init(item: TitleModel) {
         super.init()
 
@@ -21,11 +22,21 @@ class WBStatusTitleNode: ASDisplayNode {
         countNode.attributedText = item.titleText
         addSubnode(countNode)
 
+        lineNode.backgroundColor = kWBCellLineColor
+        addSubnode(lineNode)
+
         subnodes.forEach { $0.isLayerBacked = true }
     }
 
+    // With box model, you don't need to override this method, unless you want to add custom logic.
+    override func layout() {
+        super.layout()
+        // Manually layout the divider.
+        lineNode.frame = CGRect(x: 0.0, y: calculatedSize.height, width: screenW, height: onePix)
+    }
+
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        let mainStack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .start, alignItems: .center, children: [iconNode, countNode])
+        let mainStack = ASStackLayoutSpec(direction: .horizontal, spacing: 3, justifyContent: .start, alignItems: .center, children: [iconNode, countNode])
 
         // Adjust size
         mainStack.style.height = ASDimensionMakeWithPoints(kWBCellTitleHeight)

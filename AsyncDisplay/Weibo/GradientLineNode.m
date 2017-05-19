@@ -27,10 +27,10 @@
     CGColorSpaceRef myColorSpace = CGColorSpaceCreateDeviceRGB();
     
     CGGradientRef myGradient = CGGradientCreateWithColorComponents(myColorSpace, components, locations, componentCount);
-    
-    CGPoint myStartPoint = CGPointMake(CGRectGetMidX(bounds), CGRectGetMaxY(bounds));
-    CGPoint myEndPoint = CGPointMake(CGRectGetMidX(bounds), CGRectGetMidY(bounds));
-    
+
+    CGPoint myStartPoint = CGPointZero;
+    CGPoint myEndPoint = CGPointMake(0, bounds.size.height);
+
     CGContextDrawLinearGradient(myContext, myGradient, myStartPoint, myEndPoint, kCGGradientDrawsAfterEndLocation);
     
     CGContextRestoreGState(myContext);

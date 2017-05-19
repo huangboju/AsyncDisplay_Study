@@ -109,6 +109,12 @@ extension UIFont {
     }
 }
 
+extension NSAttributedString {
+    var isEmpty: Bool {
+        return length == 0
+    }
+}
+
 extension NSMutableAttributedString {
     public var rangeOfAll: NSRange {
         return NSRange(location: 0, length: length)
@@ -133,6 +139,30 @@ extension NSMutableAttributedString {
     func addParagraphStyle(_ style: NSParagraphStyle, range: NSRange? = nil) {
         addAttributes([NSParagraphStyleAttributeName: style], range: range)
     }
+    
+//    func ParagraphStyleSet() {
+//        self.enumerateAttribute(NSParagraphStyleAttributeName, in: rangeOfAll, options: []) { (value, subRange, stop) in
+//            var style: NSMutableParagraphStyle
+//            if let value = value {
+//                var _value = value
+//                if CFGetTypeID(_value as CFTypeRef!) == CTParagraphStyleGetTypeID() {
+//                    _value = NSParagraphStyle(CTStyle: _value as! CTParagraphStyle)
+//                }
+//                if (value._attr_ == _attr_) { return }
+//                if let pStyle = value as? NSMutableParagraphStyle {
+//                    style = pStyle
+//                } else {
+//                    style = (value as AnyObject).mutableCopy
+//                } 
+//            } else {
+//                
+//                if NSParagraphStyle.default. _attr_ == _attr_) return;
+//                style = NSParagraphStyle.default.mutableCopy;
+//            }
+//            style. _attr_ = _attr_; 
+//            [self setParagraphStyle:style range:subRange]; 
+//        }
+//    }
 }
 
 extension NSRange {

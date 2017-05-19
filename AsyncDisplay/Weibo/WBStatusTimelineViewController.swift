@@ -12,7 +12,7 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
     
     fileprivate var tableNode: ASTableNode!
     
-    fileprivate var datas: [WBModel] = []
+    fileprivate var datas: [MainModel] = []
 
     fileprivate var page = -1
 
@@ -48,11 +48,12 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
             return
         }
-        guard let statuses = JSON(data: data).dictionaryValue["statuses"]?.arrayValue else {
+        let json = JSON(data: data)
+        guard let statuses = json.dictionaryValue["statuses"]?.arrayValue else {
             return
         }
 
-        let items = statuses.map { WBModel(data: $0) }
+        let items = statuses.map { MainModel(data: $0) }
         datas.append(contentsOf: items)
 
         DispatchQueue.main.async {
@@ -64,6 +65,7 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "微博"
+        view.backgroundColor = kWBCellBackgroundColor
         tableNode.view.separatorStyle = .none
     }
 
