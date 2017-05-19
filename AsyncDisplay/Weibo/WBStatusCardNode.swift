@@ -20,6 +20,7 @@ class WBStatusCardNode: ASDisplayNode {
         backgroundColor = kWBCellInnerViewColor
 
         textNode.attributedText = item.text
+        textNode.maximumNumberOfLines = 3
         textNode.truncationAttributedText = NSAttributedString(forDescription: "…")
         addSubnode(textNode)
 

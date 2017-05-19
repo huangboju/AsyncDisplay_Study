@@ -27,6 +27,7 @@ class WeiBoCellNode: ASCellNode {
     init(item: MainModel) {
         super.init()
 
+        selectionStyle = .none
         backgroundColor = kWBCellBackgroundColor
 
         weiBoMainNode = WeiBoMainNode(item: item)
@@ -170,7 +171,7 @@ class WeiBoMainNode: ASDisplayNode {
 
         let retweetStack = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: children)
         let retweetInset = ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0, left: 12, bottom: 0, right: 12), child: retweetStack)
-        
+
         let footerStack = ASStackLayoutSpec(direction: .vertical, spacing: kWBCellPaddingText, justifyContent: .start, alignItems: .start, children: [retweetInset, toolBarNode])
 
         let retweetBgLayout = ASBackgroundLayoutSpec(child: footerStack, background: retweetBgNode ?? ASLayoutSpec())

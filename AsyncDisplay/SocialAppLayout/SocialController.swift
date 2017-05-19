@@ -125,4 +125,8 @@ extension SocialController: ASTableDataSource {
     }
 }
 
-extension SocialController: ASTableDelegate {}
+extension SocialController: ASTableDelegate {
+    func tableNode(_ tableNode: ASTableNode, didSelectRowAt indexPath: IndexPath) {
+        print(indexPath)
+    }
+}

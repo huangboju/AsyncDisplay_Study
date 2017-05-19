@@ -130,11 +130,7 @@ class ASDKLayoutTransition: UIViewController {
         view.addSubnode(transitionNode)
 
         transitionNode.backgroundColor = UIColor.gray
-        
-        let toolBarNode = WBStatusToolbarNode(item: ToolBarModel(commtens: 10, likes: 10, retweetNode: 12))
-        let size = transitionNode.layoutThatFits(ASSizeRange(min: .zero, max: view.frame.size)).size
-        toolBarNode.frame = CGRect(x: 0, y: 300, width: size.width, height: 35)
-        view.addSubnode(toolBarNode)
+    
     }
 
     override func viewDidLayoutSubviews() {

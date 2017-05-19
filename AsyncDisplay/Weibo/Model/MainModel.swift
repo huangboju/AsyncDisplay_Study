@@ -26,9 +26,9 @@ enum WBStatusCardType: Int {
 // MARK: WBStatusToolbarNode
 
 struct ToolBarModel {
-    let commtens: Int
-    let likes: Int
-    let retweetNode: Int
+    let commtens: (UIImage?, NSAttributedString)
+    let likes: (UIImage?, NSAttributedString)
+    let retweet: (UIImage?, NSAttributedString)
 }
 
 
@@ -67,11 +67,29 @@ struct MainModel {
 
     mutating func creatToolBarModel(with dict: [String: JSON]) {
         let commentsCount = dict["comments_count"]?.intValue ?? 0
-        let attitudesCount = dict["attitudes_count"]?.intValue ?? 0
+        let like = dict["attitudes_count"]?.intValue ?? 0
         let repostsCount = dict["reposts_count"]?.intValue ?? 0
-        toolBarModel = ToolBarModel(commtens: commentsCount, likes: attitudesCount, retweetNode: repostsCount)
+        
+        let attributes = TextStyles.cellControlStyle
+
+        let comments = (
+            WBStatusHelper.image(with: "timeline_icon_comment"),
+            NSAttributedString(string: commentsCount > 0 ? "\(commentsCount)" : "评论", attributes: attributes)
+        )
+
+        let reposts = (
+            WBStatusHelper.image(with: "timeline_icon_retweet"),
+            NSAttributedString(string: repostsCount > 0 ? "\(repostsCount)" : "转发", attributes: attributes)
+        )
+
+        let likes = (
+            WBStatusHelper.image(with: "timeline_icon_unlike"),
+            NSAttributedString(string: like > 0 ? "\(like)" : "赞", attributes: attributes)
+        )
+
+        toolBarModel = ToolBarModel(commtens: comments, likes: likes, retweet: reposts)
     }
-    
+
     // MARK: - titleModel
     mutating func creatTitleModel(with titleDict: [String: JSON]?) {
         guard let text = titleDict?["text"]?.stringValue, let iconURL = titleDict?["icon_url"]?.stringValue else {
