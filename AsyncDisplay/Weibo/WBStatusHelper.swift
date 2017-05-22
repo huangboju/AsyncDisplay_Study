@@ -6,6 +6,20 @@
 //  Copyright © 2017年 伯驹 黄. All rights reserved.
 //
 
+extension Array {
+    func split(by count: Int) -> [[Element]] {
+        var result: [[Element]] = []
+        for (i, item) in self.enumerated() {
+            if result.isEmpty || i % count == 0 {
+                result.append([item])
+            } else {
+                result[i / count].append(item)
+            }
+        }
+        return result
+    }
+}
+
 extension Bundle {
     class var WBBundle: Bundle {
         let path = Bundle(for: ViewController.self).path(forResource: "ResourceWeibo", ofType: "bundle")!
@@ -152,30 +166,6 @@ extension NSMutableAttributedString {
     func addLink(_ url: URL, range: NSRange? = nil) {
         addAttributes([kLinkAttributeName: url], range: range)
     }
-
-//    func ParagraphStyleSet() {
-//        self.enumerateAttribute(NSParagraphStyleAttributeName, in: rangeOfAll, options: []) { (value, subRange, stop) in
-//            var style: NSMutableParagraphStyle
-//            if let value = value {
-//                var _value = value
-//                if CFGetTypeID(_value as CFTypeRef!) == CTParagraphStyleGetTypeID() {
-//                    _value = NSParagraphStyle(CTStyle: _value as! CTParagraphStyle)
-//                }
-//                if (value._attr_ == _attr_) { return }
-//                if let pStyle = value as? NSMutableParagraphStyle {
-//                    style = pStyle
-//                } else {
-//                    style = (value as AnyObject).mutableCopy
-//                } 
-//            } else {
-//                
-//                if NSParagraphStyle.default. _attr_ == _attr_) return;
-//                style = NSParagraphStyle.default.mutableCopy;
-//            }
-//            style. _attr_ = _attr_; 
-//            [self setParagraphStyle:style range:subRange]; 
-//        }
-//    }
 }
 
 extension NSRange {

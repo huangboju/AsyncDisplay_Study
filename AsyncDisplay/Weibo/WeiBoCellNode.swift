@@ -6,21 +6,6 @@
 //  Copyright © 2017年 伯驹 黄. All rights reserved.
 //
 
-extension Array {
-    func split(by count: Int) -> [[Element]] {
-        var result: [[Element]] = []
-        for (i, item) in self.enumerated() {
-            if result.isEmpty || i % count == 0 {
-                result.append([item])
-            } else {
-                result[i / count].append(item)
-            }
-        }
-        return result
-    }
-}
-
-
 class WeiBoCellNode: ASCellNode {
     var weiBoMainNode: WeiBoMainNode!
 

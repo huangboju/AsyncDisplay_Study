@@ -220,7 +220,7 @@ class PostNode: ASCellNode {
             updateDividerColor()
         }
     }
-    
+
     override var isSelected: Bool {
         didSet {
             updateDividerColor()

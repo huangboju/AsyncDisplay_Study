@@ -14,11 +14,11 @@ class LikesNode: ASControlNode {
     
     init(likesCount: Int) {
         super.init()
-        
+
         self.likesCount = likesCount
         liked = (likesCount > 0) ? LikesNode.getYesOrNo : false
 
-        iconNode.image = liked ? UIImage(named: "icon_liked") : UIImage(named: "icon_like")
+        iconNode.image =  UIImage(named: liked ? "icon_liked" : "icon_like")
         addSubnode(iconNode)
 
         if likesCount > 0 {
@@ -36,7 +36,7 @@ class LikesNode: ASControlNode {
         let tmp = (arc4random() % 30) + 1
         return tmp % 5 == 0
     }
-    
+
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
 
         let mainStack =
