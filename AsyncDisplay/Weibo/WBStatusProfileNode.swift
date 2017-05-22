@@ -11,6 +11,8 @@ class WBStatusProfileNode: ASDisplayNode {
 
     private var nameNode: ASTextNode!
     private var sourceNode: ASTextNode!
+    
+    var linkManager: LinkManager?
 
     init(item: ProfileModel) {
         super.init()
@@ -38,7 +40,18 @@ class WBStatusProfileNode: ASDisplayNode {
         // sourceNode
         sourceNode = ASTextNode()
         sourceNode.attributedText = item.source
+        sourceNode.linkAttributeNames = [kLinkAttributeName]
+        linkManager = LinkManager()
+        sourceNode.delegate = linkManager
+        sourceNode.isUserInteractionEnabled = true
         addSubnode(sourceNode)
+    }
+
+    // 这个是控制可点击字符串的高亮
+    override func didLoad() {
+        // enable highlighting now that self.layer has loaded -- see ASHighlightOverlayLayer.h
+        layer.as_allowsHighlightDrawing = true
+        super.didLoad()
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

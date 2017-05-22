@@ -195,8 +195,9 @@ struct MainModel {
                 if sourceAllowClick > 0 {
                     let range = NSRange(location: 3, length: text.length)
                     from.addForegroundColor(kWBCellTextHighlightColor, range: range)
+                    from.addLink(URL(string: href)!, range: range)
                 }
-                
+
                 sourceText.append(from)
             }
         }
@@ -228,19 +229,14 @@ struct MainModel {
                 string = insert + string
             }
         }
-        
-        // 高亮状态的背景
-        //        YYTextBorder *highlightBorder = [YYTextBorder new]
-        //        highlightBorder.insets = UIEdgeInsetsMake(-2, 0, -2, 0)
-        //        highlightBorder.cornerRadius = 3
-        //        highlightBorder.fillColor = kWBCellTextHighlightBackgroundColor
-        
+
+
         let text = NSMutableAttributedString(string: string)
         text.addFont(font)
         text.addForegroundColor(textColor)
-        
+
         //         根据 urlStruct 中每个 URL.shortURL 来匹配文本，将其替换为图标+友好描述
-        
+
         let urls = dict["url_struct"]?.arrayValue.map { URLModel(dict: $0.dictionaryValue)
         }
 
@@ -253,6 +249,7 @@ struct MainModel {
                     urlTitle = urlTitle.substring(to: 27) + "…"
                 }
                 var searchRange = NSRange(location: 0, length: text.string.length)
+
                 repeat {
                     let range = (text.string as NSString).range(of: wburl.shortURL, options: [], range: searchRange)
                     if range.isEmpty { break }
@@ -287,24 +284,19 @@ struct MainModel {
                             //                        UIImage *image = [[YYImageCache sharedCache] getImageForKey:picURL.absoluteString]
                             //                        let pic = (image && !wburl.pics.count) ? [self _attachmentWithFontSize:fontSize image:image shrink:YES] : [self _attachmentWithFontSize:fontSize imageURL:wburl.urlTypePic shrink:YES]
                             //                        [replace insertAttributedString:pic atIndex:0]
+                            
                         }
+
+                        if let largeImgUrl = wburl.pics?.first?.url {
+                            replace.addLink(largeImgUrl)
+                        }
+                        
                         replace.addFont(font)
                         replace.addForegroundColor(kWBCellTextHighlightColor)
-                        
-                        // 高亮状态
-                        //                    YYTextHighlight *highlight = [YYTextHighlight new]
-                        //                    [highlight setBackgroundBorder:highlightBorder]
-                        // 数据信息，用于稍后用户点击
-                        //                    highlight.userInfo = @{kWBLinkURLName : wburl}
-                        //                    [replace setTextHighlight:highlight range:NSMakeRange(0, replace.length)]
-                        
-                        // 添加被替换的原始字符串，用于复制
-                        //                    YYTextBackedString *backed = [YYTextBackedString stringWithString:[text.string substringWithRange:range]]
-                        //                    [replace setTextBackedString:backed range:NSMakeRange(0, replace.length)]
-                        
+
                         // 替换
                         text.replaceCharacters(in: range, with: replace)
-                        
+
                         searchRange.location = searchRange.location + max(replace.length, 1)
                         if searchRange.location + 1 >= text.length {
                             break
@@ -325,21 +317,23 @@ struct MainModel {
         // 匹配 @用户名
         if let atResults = WBStatusHelper.regexAt?.matches(in: text.string, options: [], range: text.rangeOfAll) {
             for result in atResults {
-                if result.range.isEmpty && result.range.length <= 1 { continue }
-                if text.attribute("YYTextHighlight", at: result.range.location, effectiveRange: nil) == nil {
-                    text.addForegroundColor(kWBCellTextHighlightColor, range: result.range)
-                    // 高亮状态
-                    //                    YYTextHighlight *highlight = [YYTextHighlight new]
-                    //                    [highlight setBackgroundBorder:highlightBorder]
-                    //                    // 数据信息，用于稍后用户点击
-                    //                    highlight.userInfo = @{kWBLinkAtName : [text.string substringWithRange:NSMakeRange(at.range.location + 1, at.range.length - 1)]}
-                    //                    [text setTextHighlight:highlight range:at.range]
+                let range = result.range
+                
+                if range.isEmpty && range.length <= 1 { continue }
+                
+                guard text.attribute("YYTextHighlight", at: range.location, effectiveRange: nil) == nil else  {
+                    continue
                 }
+
+                text.addForegroundColor(kWBCellTextHighlightColor, range: range)
+
+                let str = text.string.substr(with: NSRange(location: range.location + 1, length: range.length - 1)).encode
+                
+                text.addLink(URL(string: "http://m.weibo.cn/n/\(str)")!, range: range)
             }
         }
         
         // 匹配 [表情]
-        
         if let emoticonResults = WBStatusHelper.regexEmoticon?.matches(in: text.string, options: [], range: text.rangeOfAll) {
             var emoClipLength = 0
             for emo in emoticonResults {

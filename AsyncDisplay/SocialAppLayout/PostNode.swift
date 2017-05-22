@@ -6,6 +6,9 @@
 //  Copyright © 2017年 伯驹 黄. All rights reserved.
 //
 
+// Processing URLs in post
+let kLinkAttributeName = "TextLinkAttributeName"
+
 class SocialSingleton {
     static let shared = SocialSingleton()
     
@@ -57,10 +60,6 @@ class PostNode: ASCellNode {
         // Time node
         timeNode.attributedText = NSAttributedString(string: post.time, attributes: TextStyles.timeStyle)
         addSubnode(timeNode)
-        
-
-        // Processing URLs in post
-        let kLinkAttributeName = "TextLinkAttributeName"
         
         if !post.post.isEmpty {
             
@@ -159,7 +158,7 @@ class PostNode: ASCellNode {
         layer.as_allowsHighlightDrawing = true
         super.didLoad()
     }
-    
+
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
         // Flexible spacer between username and time
         let spacer = ASLayoutSpec() // 占位

@@ -18,13 +18,13 @@ struct PictureMetaModel {
     var badgeName: String?
 
     init(dict: [String: JSON]?) {
-        let bmiddleDict = dict?["bmiddle"]?.dictionaryValue
-        cutType = bmiddleDict?["cut_type"]?.intValue ?? 0
-        type = bmiddleDict?["type"]?.stringValue ?? ""
-        url = (bmiddleDict?["url"]?.url)!
-        width = bmiddleDict?["width"]?.doubleValue ?? 0
-        height = bmiddleDict?["height"]?.doubleValue ?? 0
-        croped = bmiddleDict?["croped"]?.boolValue ?? false
+
+        cutType = dict?["cut_type"]?.intValue ?? 0
+        type = dict?["type"]?.stringValue ?? ""
+        url = (dict?["url"]?.url)!
+        width = dict?["width"]?.doubleValue ?? 0
+        height = dict?["height"]?.doubleValue ?? 0
+        croped = dict?["croped"]?.boolValue ?? false
         if type == "GIF" {
             badgeName = "timeline_image_gif"
         } else if width > 0 && height / width > 3  {

@@ -6,12 +6,12 @@
 //  Copyright © 2017年 伯驹 黄. All rights reserved.
 //
 
-private let kLinkAttributeName = "PlaceKittenNodeLinkAttributeName"
+//private let kLinkAttributeName = "PlaceKittenNodeLinkAttributeName"
 private let kTextPadding: CGFloat = 10.0
 
 class BlurbNode: ASCellNode, ASTextNodeDelegate {
     var textNode: ASTextNode!
-    
+
     override init() {
         super.init()
         // create a text node
@@ -28,13 +28,13 @@ class BlurbNode: ASCellNode, ASTextNodeDelegate {
         let string = NSMutableAttributedString(string: blurb)
         string.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 16)!, range: NSMakeRange(0, blurb.length))
         string.addAttributes([
-            NSLinkAttributeName: URL(string: "http://placekitten.com/")!,
+            kLinkAttributeName: URL(string: "http://placekitten.com/")!,
             NSForegroundColorAttributeName: UIColor.gray,
             NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue | NSUnderlineStyle.patternDot.rawValue
             ], range: (blurb as NSString).range(of: "placekitten.com"))
 
         textNode.attributedText = string
-        
+
         // add it as a subnode, and we're done
         addSubnode(textNode)
     }
@@ -74,6 +74,17 @@ class BlurbNode: ASCellNode, ASTextNodeDelegate {
 }
 
 extension String {
+    
+    var encode: String {
+        let unreservedChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-._~"
+        let unreservedCharset = CharacterSet(charactersIn: unreservedChars)
+        
+        return addingPercentEncoding(withAllowedCharacters: unreservedCharset) ?? self
+    }
+    
+    var decode: String {
+        return removingPercentEncoding ?? self
+    }
 
     public var rangeOfAll: NSRange {
         return NSRange(location: 0, length: length)

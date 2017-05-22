@@ -10,6 +10,8 @@
 		D813DF9B1EC5B75B00060D93 /* WBStatusTitleNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D813DF9A1EC5B75B00060D93 /* WBStatusTitleNode.swift */; };
 		D81527C71EC44E030044178C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81527C61EC44E030044178C /* Constants.swift */; };
 		D81BF12D1ECEBF98008359BE /* Date+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81BF12C1ECEBF98008359BE /* Date+Extensions.swift */; };
+		D81CF67D1ED2D6CD009C8A85 /* LinkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CF67C1ED2D6CD009C8A85 /* LinkManager.swift */; };
+		D81CF6811ED2DF21009C8A85 /* WebController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81CF6801ED2DF21009C8A85 /* WebController.swift */; };
 		D81E27271EC9A33A002F1A77 /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D81E27261EC9A33A002F1A77 /* MainModel.swift */; };
 		D81E272C1EC9A82B002F1A77 /* SwiftyJSON.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81E272B1EC9A82B002F1A77 /* SwiftyJSON.framework */; };
 		D81E272E1EC9E008002F1A77 /* SwiftyJSON.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D81E272B1EC9A82B002F1A77 /* SwiftyJSON.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -145,6 +147,8 @@
 		D813DF9A1EC5B75B00060D93 /* WBStatusTitleNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusTitleNode.swift; sourceTree = "<group>"; };
 		D81527C61EC44E030044178C /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D81BF12C1ECEBF98008359BE /* Date+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "Date+Extensions.swift"; path = "../Date+Extensions.swift"; sourceTree = "<group>"; };
+		D81CF67C1ED2D6CD009C8A85 /* LinkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LinkManager.swift; sourceTree = "<group>"; };
+		D81CF6801ED2DF21009C8A85 /* WebController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebController.swift; sourceTree = "<group>"; };
 		D81E27261EC9A33A002F1A77 /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 		D81E272B1EC9A82B002F1A77 /* SwiftyJSON.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftyJSON.framework; path = Carthage/Build/iOS/SwiftyJSON.framework; sourceTree = "<group>"; };
 		D81E27421ECAEF5D002F1A77 /* WBStatusPicNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusPicNode.swift; sourceTree = "<group>"; };
@@ -494,6 +498,8 @@
 				D87AE5D01EC75E740012B866 /* WBStatusCardNode.swift */,
 				D81E27421ECAEF5D002F1A77 /* WBStatusPicNode.swift */,
 				D823332B1ECC2EF500FF3945 /* NSParagraphStyle+Extension.swift */,
+				D81CF67C1ED2D6CD009C8A85 /* LinkManager.swift */,
+				D81CF6801ED2DF21009C8A85 /* WebController.swift */,
 			);
 			path = Weibo;
 			sourceTree = "<group>";
@@ -713,6 +719,7 @@
 				D82333261ECBE55500FF3945 /* PhotoFeedNodeController.swift in Sources */,
 				D823333C1ECC437C00FF3945 /* ButtonLinkModel.swift in Sources */,
 				D8206A7E1EC40F3500405EB0 /* ItemNode.swift in Sources */,
+				D81CF67D1ED2D6CD009C8A85 /* LinkManager.swift in Sources */,
 				D82333341ECC406900FF3945 /* PictureMetaModel.swift in Sources */,
 				D82333531ECD34BA00FF3945 /* PromiseKitController.swift in Sources */,
 				D8206A6D1EC40F3500405EB0 /* ASAnimatedImage.swift in Sources */,
@@ -727,6 +734,7 @@
 				D823331F1ECBE55500FF3945 /* PhotoFeedModel.m in Sources */,
 				D81BF12D1ECEBF98008359BE /* Date+Extensions.swift in Sources */,
 				D8206A701EC40F3500405EB0 /* CustomCollectionView.swift in Sources */,
+				D81CF6811ED2DF21009C8A85 /* WebController.swift in Sources */,
 				D82333381ECC40B900FF3945 /* UserModel.swift in Sources */,
 				D81E27431ECAEF5D002F1A77 /* WBStatusPicNode.swift in Sources */,
 				D81527C71EC44E030044178C /* Constants.swift in Sources */,

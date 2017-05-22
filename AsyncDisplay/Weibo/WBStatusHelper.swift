@@ -8,7 +8,7 @@
 
 extension Bundle {
     class var WBBundle: Bundle {
-        let path = Bundle(for: WBStatusTimelineViewController.self).path(forResource: "ResourceWeibo", ofType: "bundle")!
+        let path = Bundle(for: ViewController.self).path(forResource: "ResourceWeibo", ofType: "bundle")!
         return Bundle(path: path)!
     }
 }
@@ -148,7 +148,11 @@ extension NSMutableAttributedString {
     func addParagraphStyle(_ style: NSParagraphStyle, range: NSRange? = nil) {
         addAttributes([NSParagraphStyleAttributeName: style], range: range)
     }
-    
+
+    func addLink(_ url: URL, range: NSRange? = nil) {
+        addAttributes([kLinkAttributeName: url], range: range)
+    }
+
 //    func ParagraphStyleSet() {
 //        self.enumerateAttribute(NSParagraphStyleAttributeName, in: rangeOfAll, options: []) { (value, subRange, stop) in
 //            var style: NSMutableParagraphStyle

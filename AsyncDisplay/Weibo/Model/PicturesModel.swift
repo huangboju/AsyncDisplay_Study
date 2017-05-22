@@ -15,9 +15,9 @@ struct PicturesModel {
         let picIds = dict["pic_ids"]?.arrayValue.flatMap { $0.stringValue }
         
         let picInfos = dict["pic_infos"]?.dictionaryValue
-        
+
         pics = picIds?.map {
-            PictureMetaModel(dict: picInfos?[$0]?.dictionaryValue)
+            PictureMetaModel(dict: picInfos?[$0]?.dictionaryValue["bmiddle"]?.dictionaryValue)
         }
     }
 }

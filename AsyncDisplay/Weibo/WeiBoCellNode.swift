@@ -23,7 +23,7 @@ extension Array {
 
 class WeiBoCellNode: ASCellNode {
     var weiBoMainNode: WeiBoMainNode!
-    
+
     init(item: MainModel) {
         super.init()
 
@@ -53,6 +53,8 @@ class WeiBoMainNode: ASDisplayNode {
     var retweetBgNode: ASDisplayNode?
 
     lazy var picNodes: [[ASNetworkImageNode]] = []
+    
+    var linkManager: LinkManager?
 
     init(item: MainModel) {
         super.init()
@@ -81,9 +83,12 @@ class WeiBoMainNode: ASDisplayNode {
         addSubnode(profileNode)
 
         textNode = ASTextNode()
+        textNode.isUserInteractionEnabled = true
         textNode.attributedText = item.text
+        linkManager = LinkManager()
+        textNode.delegate = linkManager
+        textNode.linkAttributeNames = [kLinkAttributeName]
         addSubnode(textNode)
-
 
         if let retweetText = item.retweetText {
             retweetBgNode = ASDisplayNode()
@@ -92,6 +97,9 @@ class WeiBoMainNode: ASDisplayNode {
             addSubnode(retweetBgNode!)
 
             retweetTextNode = ASTextNode()
+            retweetTextNode?.isUserInteractionEnabled = true
+            retweetTextNode?.delegate = linkManager
+            retweetTextNode?.linkAttributeNames = [kLinkAttributeName]
             retweetTextNode?.attributedText = retweetText
             addSubnode(retweetTextNode!)
         }
@@ -123,6 +131,13 @@ class WeiBoMainNode: ASDisplayNode {
 
         toolBarNode = WBStatusToolbarNode(item: item.toolBarModel)
         addSubnode(toolBarNode)
+    }
+
+    // 这个是控制可点击字符串的高亮
+    override func didLoad() {
+        // enable highlighting now that self.layer has loaded -- see ASHighlightOverlayLayer.h
+        layer.as_allowsHighlightDrawing = true
+        super.didLoad()
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

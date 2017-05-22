@@ -88,13 +88,6 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
         showAlert(message: message)
     }
 
-    func showAlert(title: String? = nil, message: String? = nil) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
-        let action = UIAlertAction(title: "好", style: .default, handler: nil)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
-    }
-
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -122,4 +115,32 @@ extension WBStatusTimelineViewController: ASTableDelegate {
         context.beginBatchFetching()
         loadPage(with: context)
     }
+}
+
+extension UIWindow {
+    public var visibleViewController: UIViewController? {
+        return UIWindow.getVisibleViewController(from: self.rootViewController)
+    }
+
+    public static func getVisibleViewController(from vc: UIViewController?) -> UIViewController? {
+        if let nc = vc as? UINavigationController {
+            return UIWindow.getVisibleViewController(from: nc.visibleViewController)
+        } else if let tc = vc as? UITabBarController {
+            return UIWindow.getVisibleViewController(from: tc.selectedViewController)
+        } else {
+            if let pvc = vc?.presentedViewController {
+                return UIWindow.getVisibleViewController(from: pvc)
+            } else {
+                return vc
+            }
+        }
+    }
+}
+
+func showAlert(title: String? = nil, message: String? = nil) {
+    let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+    let action = UIAlertAction(title: "好", style: .default, handler: nil)
+    alert.addAction(action)
+    let visibleViewController = UIApplication.shared.keyWindow?.visibleViewController
+    visibleViewController?.present(alert, animated: true, completion: nil)
 }
