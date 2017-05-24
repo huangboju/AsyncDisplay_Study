@@ -206,7 +206,7 @@ class PostNode: ASCellNode {
 
         return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(10, 10, 10, 10), child: avatarContentSpec)
     }
-    
+
     override func layout() {
         super.layout()
     
