@@ -1,6 +1,0 @@
-
-github "texturegroup/texture" == 2.2
-github "Instagram/IGListKit"
-github "MatthewYork/DateTools" "2.0.0-beta.3"
-github "SwiftyJSON/SwiftyJSON"
-github "mxcl/PromiseKit" ~> 4.0

@@ -10,6 +10,8 @@ private let kLitterSize = 20           // intial number of kitten cells in ASTab
 private let kLitterBatchSize = 10      // number of kitten cells to add to ASTableNode
 private let kMaxLitterSize = 100       // max number of kitten cells allowed in ASTableNode
 
+import AsyncDisplayKit
+
 class KittensController: ASViewController<ASDisplayNode> {
     
     var tableNode: ASTableNode!

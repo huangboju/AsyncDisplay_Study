@@ -12,6 +12,8 @@ private let kInnerPadding: CGFloat = 10.0
 
 var _placeholders: [String]!
 
+import AsyncDisplayKit
+
 class KittenNode: ASCellNode {
     private var kittenSize: CGSize
     

@@ -7,7 +7,7 @@
 //
 
 import SwiftyJSON
-import DateTools
+import DateToolsSwift
 
 /// 认证方式
 enum UserModelVerifyType: Int {

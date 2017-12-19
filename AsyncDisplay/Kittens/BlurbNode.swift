@@ -9,6 +9,8 @@
 //private let kLinkAttributeName = "PlaceKittenNodeLinkAttributeName"
 private let kTextPadding: CGFloat = 10.0
 
+import AsyncDisplayKit
+
 class BlurbNode: ASCellNode, ASTextNodeDelegate {
     var textNode: ASTextNode!
 

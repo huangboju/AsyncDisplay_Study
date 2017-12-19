@@ -9,6 +9,8 @@
 private let kOuterPadding: CGFloat = 16.0
 private let kInnerPadding: CGFloat = 10.0
 
+import AsyncDisplayKit
+
 class HorizontalScrollCellNode: ASCellNode {
     private var collectionNode: ASCollectionNode!
     fileprivate let elementSize: CGSize

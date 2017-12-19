@@ -20,6 +20,8 @@ let InsetForAvatar = UIEdgeInsetsMake(HORIZONTAL_BUFFER, 0, HORIZONTAL_BUFFER, H
 let InsetForHeader = UIEdgeInsetsMake(0, HORIZONTAL_BUFFER, 0, HORIZONTAL_BUFFER)
 let InsetForFooter = UIEdgeInsetsMake(VERTICAL_BUFFER, HORIZONTAL_BUFFER, VERTICAL_BUFFER, HORIZONTAL_BUFFER)
 
+import AsyncDisplayKit
+
 class PhotoCellNode: ASCellNode {
     var photoModel: PhotoModel!
     var photoCommentsNode: PhotoCommentsNode!

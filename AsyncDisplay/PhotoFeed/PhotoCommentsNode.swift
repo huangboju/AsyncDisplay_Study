@@ -9,6 +9,8 @@
 let INTER_COMMENT_SPACING: CGFloat = 5
 let NUM_COMMENTS_TO_SHOW  = 3
 
+import AsyncDisplayKit
+
 class PhotoCommentsNode: ASDisplayNode {
     var commentFeed: CommentFeedModel?
     

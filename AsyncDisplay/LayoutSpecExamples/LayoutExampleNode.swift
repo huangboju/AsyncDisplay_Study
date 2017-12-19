@@ -6,7 +6,7 @@
 //  Copyright © 2017年 伯驹 黄. All rights reserved.
 //
 
-import UIKit
+import AsyncDisplayKit
 
 class LayoutExampleNode: ASDisplayNode {
     
@@ -94,7 +94,7 @@ class PhotoWithInsetTextOverlay: LayoutExampleNode {
         photoNode = ASNetworkImageNode()
         photoNode.url = URL(string: "http://uploadfile.deskcity.org/2015/0902/20150902024359322.jpg")
         photoNode.willDisplayNodeContentWithRenderingContext = { context in
-            let bounds = context.boundingBoxOfClipPath
+            let bounds = context.0.boundingBoxOfClipPath
             UIBezierPath(roundedRect: bounds, cornerRadius: 10).addClip()
         }
 

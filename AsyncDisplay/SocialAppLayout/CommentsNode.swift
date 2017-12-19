@@ -6,6 +6,8 @@
 //  Copyright © 2017年 伯驹 黄. All rights reserved.
 //
 
+import AsyncDisplayKit
+
 class CommentsNode: ASControlNode {
     let iconNode = ASImageNode()
     let countNode = ASTextNode()

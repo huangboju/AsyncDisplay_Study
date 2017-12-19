@@ -17,6 +17,8 @@
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+import AsyncDisplayKit
+
 class ImageCellNode: ASCellNode {
     let imageNode = ASImageNode()
     required init(with image: UIImage) {

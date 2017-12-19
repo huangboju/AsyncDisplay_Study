@@ -17,6 +17,8 @@
 //  CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
+import AsyncDisplayKit
+
 protocol MosaicCollectionViewLayoutDelegate: ASCollectionDelegate {
     func collectionView(_ collectionView: UICollectionView, layout: MosaicCollectionViewLayout, originalItemSizeAtIndexPath: IndexPath) -> CGSize
 }

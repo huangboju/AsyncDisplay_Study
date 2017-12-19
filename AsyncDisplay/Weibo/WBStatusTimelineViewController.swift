@@ -7,6 +7,7 @@
 //
 
 import SwiftyJSON
+import AsyncDisplayKit
 
 class WBStatusTimelineViewController: ASViewController<ASTableNode> {
 
@@ -52,7 +53,7 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
         guard let data = try? Data(contentsOf: URL(fileURLWithPath: path)) else {
             return
         }
-        let json = JSON(data: data)
+        let json = try! JSON(data: data)
         guard let statuses = json.dictionaryValue["statuses"]?.arrayValue else {
             return
         }
