@@ -250,16 +250,16 @@ extension OverviewComponentsViewController: ASTableDataSource {
         return {
             let cellNode = OverviewTitleDescriptionCellNode()
 
-            let titleNodeAttributes: [String: Any] = [
-                NSFontAttributeName: UIFont.boldSystemFont(ofSize: 14.0),
-                NSForegroundColorAttributeName: UIColor.black
+            let titleNodeAttributes: [NSAttributedStringKey: Any] = [
+                .font: UIFont.boldSystemFont(ofSize: 14.0),
+                .foregroundColor: UIColor.black
             ]
 
             cellNode.titleNode.attributedText = NSAttributedString(string: node!.entryTitle!, attributes: titleNodeAttributes)
 
             if let entryDescription = node?.entryDescription {
                 let descriptionNodeAttributes = [
-                    NSForegroundColorAttributeName: UIColor.lightGray
+                    NSAttributedStringKey.foregroundColor: UIColor.lightGray
                 ]
                 cellNode.descriptionNode.attributedText = NSAttributedString(string: entryDescription, attributes: descriptionNodeAttributes)
             }

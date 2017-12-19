@@ -152,19 +152,19 @@ extension NSMutableAttributedString {
     }
 
     func addForegroundColor(_ color: UIColor, range: NSRange? = nil) {
-        addAttributes([NSForegroundColorAttributeName: color], range: range)
+        addAttributes([NSAttributedStringKey.foregroundColor: color], range: range!)
     }
 
     func addFont(_ font: UIFont, range: NSRange? = nil) {
-        addAttributes([NSFontAttributeName: font], range: range)
+        addAttributes([NSAttributedStringKey.font: font], range: range!)
     }
 
     func addParagraphStyle(_ style: NSParagraphStyle, range: NSRange? = nil) {
-        addAttributes([NSParagraphStyleAttributeName: style], range: range)
+        addAttributes([NSAttributedStringKey.paragraphStyle: style], range: range!)
     }
 
     func addLink(_ url: URL, range: NSRange? = nil) {
-        addAttributes([kLinkAttributeName: url], range: range)
+        addAttributes([kLinkAttributeName: url], range: range!)
     }
 }
 
@@ -184,7 +184,7 @@ struct EventName {
 
 extension UIResponder {
 
-    func router(with eventName: String, userInfo: [String: Any]) {
+    @objc func router(with eventName: String, userInfo: [String: Any]) {
         if let next = next {
             next.router(with: eventName, userInfo: userInfo)
         }

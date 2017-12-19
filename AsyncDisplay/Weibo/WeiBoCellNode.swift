@@ -74,7 +74,7 @@ class WeiBoMainNode: ASDisplayNode {
         textNode.attributedText = item.text
         linkManager = LinkManager()
         textNode.delegate = linkManager
-        textNode.linkAttributeNames = [kLinkAttributeName]
+        textNode.linkAttributeNames = [kLinkAttributeName.rawValue]
         addSubnode(textNode)
 
         if let retweetText = item.retweetText {
@@ -86,7 +86,7 @@ class WeiBoMainNode: ASDisplayNode {
             retweetTextNode = ASTextNode()
             retweetTextNode?.isUserInteractionEnabled = true
             retweetTextNode?.delegate = linkManager
-            retweetTextNode?.linkAttributeNames = [kLinkAttributeName]
+            retweetTextNode?.linkAttributeNames = [kLinkAttributeName.rawValue]
             retweetTextNode?.attributedText = retweetText
             addSubnode(retweetTextNode!)
         }

@@ -31,11 +31,11 @@ class PagerNodeController: ASViewController<ASPagerNode> {
     
     // MARK: - Actions
 
-    func scrollToNextPage(sender: UIBarButtonItem) {
+    @objc func scrollToNextPage(sender: UIBarButtonItem) {
         node.scrollToPage(at: node.currentPageIndex + 1, animated: true)
     }
 
-    func scrollToPreviousPage(sender: UIBarButtonItem) {
+    @objc func scrollToPreviousPage(sender: UIBarButtonItem) {
         node.scrollToPage(at: node.currentPageIndex - 1, animated: true)
     }
 

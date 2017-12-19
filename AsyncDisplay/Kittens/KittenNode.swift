@@ -95,7 +95,7 @@ class KittenNode: ASCellNode {
         return string
     }
     
-    var textStyle: [String: Any] {
+    var textStyle: [NSAttributedStringKey: Any] {
         
         let font = UIFont(name: "HelveticaNeue", size: 12)!
         
@@ -104,9 +104,9 @@ class KittenNode: ASCellNode {
         style.hyphenationFactor = 1.0
 
         return [
-            NSFontAttributeName: font,
-            NSParagraphStyleAttributeName: style,
-            ASTextNodeWordKerningAttributeName : 0.5
+            .font: font,
+            .paragraphStyle: style,
+             NSAttributedStringKey(ASTextNodeWordKerningAttributeName): 0.5
         ]
     }
 
@@ -140,7 +140,7 @@ class KittenNode: ASCellNode {
         setNeedsLayout()
     }
 
-    func toggleNodesSwap() {
+    @objc func toggleNodesSwap() {
         swappedTextAndImage = !swappedTextAndImage
 
         UIView.animate(withDuration: 0.15, animations: { 

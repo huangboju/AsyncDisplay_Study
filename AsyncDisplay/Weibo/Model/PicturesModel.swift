@@ -17,7 +17,7 @@ struct PicturesModel {
         let picInfos = dict["pic_infos"]?.dictionaryValue
 
         pics = picIds?.map {
-            PictureMetaModel(dict: picInfos?[$0]?.dictionaryValue["bmiddle"]?.dictionaryValue)
+            PictureMetaModel(dict: picInfos?[$0.description]?.dictionaryValue["bmiddle"]?.dictionaryValue)
         }
     }
 }

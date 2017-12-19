@@ -36,22 +36,23 @@ extension NSShadow {
 extension NSAttributedString {
     convenience init(forTitleText text: String) {
         
-        let titleAttributes: [String: Any] = [
-            NSFontAttributeName: UIFont(name: "AvenirNext-Heavy", size: 30)!,
-            NSForegroundColorAttributeName: UIColor.white,
-            NSShadowAttributeName: NSShadow.titleTextShadow,
-            NSParagraphStyleAttributeName: NSParagraphStyle.justifiedParagraphStyle
+        let titleAttributes: [NSAttributedStringKey: Any] = [
+            .font: UIFont(name: "AvenirNext-Heavy", size: 30)!,
+            .foregroundColor: UIColor.white,
+            .shadow: NSShadow.titleTextShadow,
+            .paragraphStyle: NSParagraphStyle.justifiedParagraphStyle
         ]
+
         self.init(string: text, attributes: titleAttributes)
-        
     }
     
     convenience init(forDescription text: String) {
-        let descriptionAttributes: [String: Any] = [
-            NSFontAttributeName: UIFont(name: "AvenirNext-Medium", size: 16)!,
-            NSForegroundColorAttributeName: UIColor.white,
-            NSBackgroundColorAttributeName: UIColor.clear,
-            NSShadowAttributeName: NSShadow.descriptionTextShadow, NSParagraphStyleAttributeName: NSParagraphStyle.justifiedParagraphStyle
+        let descriptionAttributes: [NSAttributedStringKey: Any] = [
+            .font: UIFont(name: "AvenirNext-Medium", size: 16)!,
+            .foregroundColor: UIColor.white,
+            .backgroundColor: UIColor.clear,
+            .shadow: NSShadow.descriptionTextShadow,
+            .paragraphStyle: NSParagraphStyle.justifiedParagraphStyle
         ]
         
         self.init(string: text, attributes: descriptionAttributes)
@@ -59,8 +60,8 @@ extension NSAttributedString {
 
     convenience init(string: String, fontSize size: CGFloat, color: UIColor?) {
         let attributes = [
-            NSForegroundColorAttributeName: color ?? UIColor.black,
-            NSFontAttributeName: UIFont.boldSystemFont(ofSize: size)
+            NSAttributedStringKey.foregroundColor: color ?? UIColor.black,
+            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size)
         ]
         self.init(string: string, attributes: attributes)
     }

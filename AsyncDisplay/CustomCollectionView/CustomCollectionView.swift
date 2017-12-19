@@ -68,8 +68,8 @@ class CustomCollectionView: UIViewController, MosaicCollectionViewLayoutDelegate
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> ASCellNode {
         let textAttributes: [String: Any] = [
-            NSFontAttributeName: UIFont.preferredFont(forTextStyle: .headline),
-            NSForegroundColorAttributeName: UIColor.gray
+            NSAttributedStringKey.font.rawValue: UIFont.preferredFont(forTextStyle: .headline),
+            NSAttributedStringKey.foregroundColor.rawValue: UIColor.gray
         ]
         let textInsets = UIEdgeInsets(top: 11, left: 0, bottom: 11, right: 0)
         let textCellNode = ASTextCellNode(attributes: textAttributes, insets: textInsets)

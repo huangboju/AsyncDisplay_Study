@@ -83,7 +83,7 @@ class WBStatusToolbarNode: ASDisplayNode {
         return stackNode
     }
 
-    func commentsAction(sender: ToolBarButton) {
+    @objc func commentsAction(sender: ToolBarButton) {
         sender.view.router(with: sender.key, userInfo: [sender.key: ""])
     }
 }

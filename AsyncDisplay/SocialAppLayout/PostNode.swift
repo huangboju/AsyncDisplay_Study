@@ -9,7 +9,7 @@
 import AsyncDisplayKit
 
 // Processing URLs in post
-let kLinkAttributeName = "TextLinkAttributeName"
+let kLinkAttributeName = NSAttributedStringKey(rawValue: "TextLinkAttributeName")
 
 class SocialSingleton {
     static let shared = SocialSingleton()
@@ -82,7 +82,7 @@ class PostNode: ASCellNode {
             // Configure node to support tappable links
             postNode.delegate = self
             postNode.isUserInteractionEnabled = true
-            postNode.linkAttributeNames = [kLinkAttributeName]
+            postNode.linkAttributeNames = [kLinkAttributeName.rawValue]
             postNode.attributedText = attrString
             postNode.passthroughNonlinkTouches = true   // passes touches through when they aren't on a link
         }

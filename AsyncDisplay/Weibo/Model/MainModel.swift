@@ -273,7 +273,7 @@ struct MainModel {
                     
                     
                     
-                    if text.attribute("YYTextHighlight", at: range.location, effectiveRange: nil) == nil {
+                    if text.attribute(NSAttributedStringKey(rawValue: "YYTextHighlight"), at: range.location, effectiveRange: nil) == nil {
                         
                         // 替换的内容
                         
@@ -321,7 +321,7 @@ struct MainModel {
                 
                 if range.isEmpty && range.length <= 1 { continue }
                 
-                guard text.attribute("YYTextHighlight", at: range.location, effectiveRange: nil) == nil else  {
+                guard text.attribute(NSAttributedStringKey(rawValue: "YYTextHighlight"), at: range.location, effectiveRange: nil) == nil else  {
                     continue
                 }
 
@@ -340,8 +340,8 @@ struct MainModel {
                 if emo.range.isEmpty && emo.range.length <= 1 { continue }
                 var range = emo.range
                 range.location -= emoClipLength
-                if text.attribute("YYTextHighlight", at: range.location, effectiveRange: nil) != nil { continue }
-                if text.attribute("YYTextAttachment", at: range.location, effectiveRange: nil) != nil { continue }
+                if text.attribute(NSAttributedStringKey(rawValue: "YYTextHighlight"), at: range.location, effectiveRange: nil) != nil { continue }
+                if text.attribute(NSAttributedStringKey(rawValue: "YYTextAttachment"), at: range.location, effectiveRange: nil) != nil { continue }
                 let emoString = text.string.substr(with: range)
                 //                let imagePath = [WBStatusHelper emoticonDic][emoString]
                 //                let image = [WBStatusHelper imageWithPath:imagePath]

@@ -51,7 +51,7 @@ class TransitionNode: ASDisplayNode {
 
     // MARK: - Actions
 
-    func buttonPressed() {
+    @objc func buttonPressed() {
         isEnabled = !isEnabled
         transitionLayout(withAnimation: true, shouldMeasureAsync: false, measurementCompletion: nil)
     }

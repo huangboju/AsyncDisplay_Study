@@ -22,17 +22,17 @@ class BlurbNode: ASCellNode, ASTextNodeDelegate {
         // configure the node to support tappable links
         textNode.delegate = self
         textNode.isUserInteractionEnabled = true
-        textNode.linkAttributeNames = [kLinkAttributeName]
+        textNode.linkAttributeNames = [kLinkAttributeName.rawValue]
 
         // generate an attributed string using the custom link attribute specified above
         let blurb = "kittens courtesy placekitten.com 😸"
 
         let string = NSMutableAttributedString(string: blurb)
-        string.addAttribute(NSFontAttributeName, value: UIFont(name: "HelveticaNeue-Light", size: 16)!, range: NSMakeRange(0, blurb.length))
+        string.addAttribute(NSAttributedStringKey.font, value: UIFont(name: "HelveticaNeue-Light", size: 16)!, range: NSMakeRange(0, blurb.length))
         string.addAttributes([
             kLinkAttributeName: URL(string: "http://placekitten.com/")!,
-            NSForegroundColorAttributeName: UIColor.gray,
-            NSUnderlineStyleAttributeName: NSUnderlineStyle.styleSingle.rawValue | NSUnderlineStyle.patternDot.rawValue
+            .foregroundColor: UIColor.gray,
+            .underlineStyle: NSUnderlineStyle.styleSingle.rawValue | NSUnderlineStyle.patternDot.rawValue
             ], range: (blurb as NSString).range(of: "placekitten.com"))
 
         textNode.attributedText = string

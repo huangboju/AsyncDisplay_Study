@@ -27,7 +27,7 @@ class ASAnimatedImage: UIViewController {
         
         let postNode = ASTextNode()
         postNode.frame = CGRect(x: 0, y: 64, width: screenW, height: 100)
-        let kLinkAttributeName = "TextLinkAttributeName"
+        let kLinkAttributeName = NSAttributedStringKey("TextLinkAttributeName")
         let str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. https://github.com/facebook/AsyncDisplayKit Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
         let attrString = NSMutableAttributedString(string: str, attributes: TextStyles.postStyle)
@@ -38,6 +38,7 @@ class ASAnimatedImage: UIViewController {
             if result?.resultType == NSTextCheckingResult.CheckingType.link {
                 
                 var linkAttributes = TextStyles.postLinkStyle
+
                 linkAttributes[kLinkAttributeName] = URL(string: (result?.url?.absoluteString)!)
                 
                 attrString.addAttributes(linkAttributes, range: (result?.range)!)
@@ -47,7 +48,7 @@ class ASAnimatedImage: UIViewController {
         // Configure node to support tappable links
         postNode.delegate = self
         postNode.isUserInteractionEnabled = true
-        postNode.linkAttributeNames = [kLinkAttributeName]
+        postNode.linkAttributeNames = [kLinkAttributeName.rawValue]
         postNode.attributedText = attrString
         postNode.passthroughNonlinkTouches = true
 

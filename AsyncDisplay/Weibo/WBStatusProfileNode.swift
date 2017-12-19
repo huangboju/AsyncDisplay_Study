@@ -42,7 +42,7 @@ class WBStatusProfileNode: ASDisplayNode {
         // sourceNode
         sourceNode = ASTextNode()
         sourceNode.attributedText = item.source
-        sourceNode.linkAttributeNames = [kLinkAttributeName]
+        sourceNode.linkAttributeNames = [kLinkAttributeName.rawValue]
         linkManager = LinkManager()
         sourceNode.delegate = linkManager
         sourceNode.isUserInteractionEnabled = true
