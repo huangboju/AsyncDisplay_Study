@@ -15,12 +15,12 @@ class ASAnimatedImage: UIViewController {
 
         let imageNode = ASNetworkImageNode()
 
-        imageNode.url = URL(string: "http://ww2.sinaimg.cn/or360/6fc6f04egw1evuciu6zqlj20hs0vkab3.jpg")
+        imageNode.url = URL(string: "https://media.giphy.com/media/l2R0aKwejYr8ycKAg/giphy.gif")
         imageNode.delegate = self
         imageNode.frame = view.bounds
         imageNode.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         imageNode.contentMode = .scaleAspectFit
-//        view.addSubnode(imageNode)
+        view.addSubnode(imageNode)
 
         navigationItem.showTitleView(text: "Loading")
         

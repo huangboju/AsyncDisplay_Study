@@ -10,31 +10,30 @@ import AsyncDisplayKit
 
 class ASCollectionViewController: UIViewController {
     
-    var collectionNode: ASCollectionNode!
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
+    private lazy var collectionNode: ASCollectionNode = {
         let layout = UICollectionViewFlowLayout()
-        layout.itemSize = CGSize(width: 10, height: 10)
+        layout.headerReferenceSize = CGSize(width: 50.0, height: 50.0)
+        layout.footerReferenceSize = CGSize(width: 50.0, height: 50.0)
 
-        collectionNode = ASCollectionNode(frame: .zero, collectionViewLayout: layout, layoutFacilitator: nil)
-
+        let collectionNode = ASCollectionNode(frame: self.view.bounds, collectionViewLayout: layout)
+        collectionNode.registerSupplementaryNode(ofKind: UICollectionElementKindSectionHeader)
+        collectionNode.registerSupplementaryNode(ofKind: UICollectionElementKindSectionFooter)
         collectionNode.dataSource = self
         collectionNode.delegate = self
 
         collectionNode.autoresizingMask = [.flexibleWidth, .flexibleHeight]
         collectionNode.backgroundColor = UIColor.white
 
+        return collectionNode
+    }()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
         view.addSubnode(collectionNode)
         collectionNode.frame = view.bounds
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     deinit {
         collectionNode.dataSource = nil
         collectionNode.delegate = nil
@@ -42,7 +41,8 @@ class ASCollectionViewController: UIViewController {
 }
 
 extension ASCollectionViewController: ASCollectionDataSource {
-    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> ASCellNodeBlock {
+    
+    func collectionNode(_ collectionNode: ASCollectionNode, nodeBlockForItemAt indexPath: IndexPath) -> ASCellNodeBlock {
         let text = "[\(indexPath.section).\(indexPath.item)] says hi"
         return {
             return ItemNode(string: text)
@@ -56,7 +56,7 @@ extension ASCollectionViewController: ASCollectionDataSource {
         node.backgroundColor = isHeaderSection ? UIColor.blue : UIColor.red
         return node
     }
-    
+
     func collectionNode(_ collectionNode: ASCollectionNode, numberOfItemsInSection section: Int) -> Int {
         return 10
     }

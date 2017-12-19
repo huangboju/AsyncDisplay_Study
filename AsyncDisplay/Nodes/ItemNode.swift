@@ -9,8 +9,8 @@
 import AsyncDisplayKit
 
 class ItemNode: ASTextCellNode {
-    init(string: String) {
-        super.init()
+    convenience init(string: String) {
+        self.init()
         text = string
         updateBackgroundColor()
     }
