@@ -21,7 +21,7 @@ struct PictureMetaModel {
 
         cutType = dict?["cut_type"]?.intValue ?? 0
         type = dict?["type"]?.stringValue ?? ""
-        url = (dict?["url"]?.url)!
+        url = dict?["url"]?.url ?? URL(string: "https://www.baidu.com/")!
         width = dict?["width"]?.doubleValue ?? 0
         height = dict?["height"]?.doubleValue ?? 0
         croped = dict?["croped"]?.boolValue ?? false

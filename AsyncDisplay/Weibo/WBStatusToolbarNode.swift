@@ -26,8 +26,8 @@ class WBStatusToolbarNode: ASDisplayNode {
     private var line1: GradientLineNode!
     private var line2: GradientLineNode!
     
-    init(item: ToolBarModel) {
-        super.init()
+    convenience init(item: ToolBarModel) {
+        self.init()
 
         backgroundColor = UIColor.white
         borderWidth = onePix

@@ -96,7 +96,7 @@ extension String {
      字符串长度
      */
     public var length: Int {
-        return characters.count
+        return count
     }
     
     /**
@@ -139,13 +139,14 @@ extension String {
 
     func substring(from: Int) -> String {
         let fromIndex = index(from: from)
-        return substring(from: fromIndex)
+        return String(self[fromIndex...])
     }
-    
+
     func substring(to: Int) -> String {
-        return substring(to: index(from: to))
+        let toIndex = index(from: to)
+        return String(self[..<toIndex])
     }
-    
+
     func index(from: Int) -> Index {
         return index(startIndex, offsetBy: from)
     }
@@ -157,8 +158,8 @@ extension String {
 
     func substr(with range: NSRange) -> String {
         let start = index(startIndex, offsetBy: range.location)
-        let end = index(endIndex, offsetBy: range.location + range.length - characters.count)
-        return substring(with: start ..< end)
+        let end = index(endIndex, offsetBy: range.location + range.length - count)
+        return String(self[start ..< end])
     }
 
     func nsrange(of str: String) -> NSRange {

@@ -16,8 +16,8 @@ class WBStatusProfileNode: ASDisplayNode {
     
     var linkManager: LinkManager?
 
-    init(item: ProfileModel) {
-        super.init()
+    convenience init(item: ProfileModel) {
+        self.init()
 
         // avatarNode
         avatarNode = WBStatusPicNode(badgeName: item.badgeName)

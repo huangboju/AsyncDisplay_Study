@@ -13,8 +13,8 @@ class WBStatusTitleNode: ASDisplayNode {
     let countNode = ASTextNode()
     let lineNode = ASDisplayNode()
 
-    init(item: TitleModel) {
-        super.init()
+    convenience init(item: TitleModel) {
+        self.init()
 
         iconNode.url = item.iconURL
         iconNode.style.width = ASDimensionMakeWithPoints(14)

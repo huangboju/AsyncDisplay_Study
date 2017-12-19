@@ -152,19 +152,19 @@ extension NSMutableAttributedString {
     }
 
     func addForegroundColor(_ color: UIColor, range: NSRange? = nil) {
-        addAttributes([NSAttributedStringKey.foregroundColor: color], range: range!)
+        addAttributes([NSAttributedStringKey.foregroundColor: color], range: range ?? NSRange(location: 0, length: length))
     }
 
     func addFont(_ font: UIFont, range: NSRange? = nil) {
-        addAttributes([NSAttributedStringKey.font: font], range: range!)
+        addAttributes([NSAttributedStringKey.font: font], range: range ?? NSRange(location: 0, length: length))
     }
 
     func addParagraphStyle(_ style: NSParagraphStyle, range: NSRange? = nil) {
-        addAttributes([NSAttributedStringKey.paragraphStyle: style], range: range!)
+        addAttributes([NSAttributedStringKey.paragraphStyle: style], range: range ?? NSRange(location: 0, length: length))
     }
 
     func addLink(_ url: URL, range: NSRange? = nil) {
-        addAttributes([kLinkAttributeName: url], range: range!)
+        addAttributes([kLinkAttributeName: url], range: range ?? NSRange(location: 0, length: length))
     }
 }
 

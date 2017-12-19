@@ -11,8 +11,8 @@ import AsyncDisplayKit
 class WeiBoCellNode: ASCellNode {
     var weiBoMainNode: WeiBoMainNode!
 
-    init(item: MainModel) {
-        super.init()
+    convenience init(item: MainModel) {
+        self.init()
 
         selectionStyle = .none
         backgroundColor = kWBCellBackgroundColor
@@ -43,8 +43,8 @@ class WeiBoMainNode: ASDisplayNode {
     
     var linkManager: LinkManager?
 
-    init(item: MainModel) {
-        super.init()
+    convenience init(item: MainModel) {
+        self.init()
 
         backgroundColor = UIColor.white
         borderWidth = onePix

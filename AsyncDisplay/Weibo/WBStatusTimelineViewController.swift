@@ -92,11 +92,6 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
 }
 
 extension WBStatusTimelineViewController: ASTableDataSource {
@@ -105,8 +100,9 @@ extension WBStatusTimelineViewController: ASTableDataSource {
     }
 
     func tableNode(_ tableNode: ASTableNode, nodeBlockForRowAt indexPath: IndexPath) -> ASCellNodeBlock {
+        let item = datas[indexPath.row]
         return {
-            return WeiBoCellNode(item: self.datas[indexPath.row])
+            return WeiBoCellNode(item: item)
         }
     }
 }

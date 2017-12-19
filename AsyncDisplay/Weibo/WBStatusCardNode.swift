@@ -13,8 +13,8 @@ class WBStatusCardNode: ASDisplayNode {
     var badgeNode: ASNetworkImageNode?
     var imageNode: ASNetworkImageNode?
     
-    init(item: CardModel) {
-        super.init()
+    convenience init(item: CardModel) {
+        self.init()
 
         borderWidth = onePix
         borderColor = UIColor(white: 0, alpha: 0.07).cgColor
