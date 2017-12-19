@@ -23,10 +23,10 @@
 
 + (NSString *)imageParameterForClosestImageSize:(CGSize)size
 {
-  BOOL squareImageRequested = (size.width == size.height) ? YES : NO;
-  
-  NSUInteger imageParameterID;
-  if (squareImageRequested) {
+
+    NSUInteger imageParameterID = 0;
+
+  if (size.width == size.height) {
     imageParameterID = [self imageParameterForSquareCroppedSize:size];
   }
   

@@ -43,162 +43,163 @@ class OverviewComponentsViewController: ASViewController<ASDisplayNode> {
         var mutableLayoutSpecData: [OverviewDisplayNodeWithSizeBlock] = []
 
         // MARK: - ASInsetLayoutSpec
-        var childNode: ASDisplayNode!
 
         var _parentNode: OverviewDisplayNodeWithSizeBlock!
 
-        childNode = self.childNode
+        let insetchildNode = self.childNode()
 
-        _parentNode = parentNode(with: childNode)
+        _parentNode = parentNode(with: insetchildNode)
         _parentNode.entryTitle = "ASInsetLayoutSpec"
         _parentNode.entryDescription = "Applies an inset margin around a component."
         _parentNode.sizeThatFitsBlock = { _ in
-            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 10, bottom: 0, right: 0), child: childNode)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 20, left: 10, bottom: 0, right: 0), child: insetchildNode)
         }
-        _parentNode.addSubnode(childNode)
+        _parentNode.addSubnode(insetchildNode)
 
         mutableLayoutSpecData.append(_parentNode)
-        
+
 
         // MARK: - ASBackgroundLayoutSpec
         let backgroundNode = ASDisplayNode()
         backgroundNode.backgroundColor = UIColor.green
-        
-        childNode = self.childNode
 
-        childNode.backgroundColor = childNode.backgroundColor?.withAlphaComponent(0.5)
+        let backgroundChildNode = self.childNode()
 
-        _parentNode = parentNode(with: childNode)
+        backgroundChildNode.backgroundColor = backgroundChildNode.backgroundColor?.withAlphaComponent(0.5)
+
+        _parentNode = parentNode(with: backgroundChildNode)
         _parentNode.entryTitle = "ASBackgroundLayoutSpec"
         _parentNode.entryDescription = "Lays out a component, stretching another component behind it as a backdrop."
-
         _parentNode.sizeThatFitsBlock = { _ in
-            return ASBackgroundLayoutSpec(child: childNode, background: backgroundNode)
+            return ASBackgroundLayoutSpec(child: backgroundChildNode, background: backgroundNode)
         }
         _parentNode.addSubnode(backgroundNode)
-        _parentNode.addSubnode(childNode)
+        _parentNode.addSubnode(backgroundChildNode)
         mutableLayoutSpecData.append(_parentNode)
-        
-        
+
+
         // MARK: - ASOverlayLayoutSpec
         let overlayNode = ASDisplayNode()
         overlayNode.backgroundColor = UIColor.green.withAlphaComponent(0.5)
 
-        childNode = self.childNode
+        let overlayChildNode = self.childNode()
 
-        _parentNode = parentNode(with: childNode)
+        _parentNode = parentNode(with: overlayChildNode)
         _parentNode.entryTitle = "ASOverlayLayoutSpec"
         _parentNode.entryDescription = "Lays out a component, stretching another component on top of it as an overlay."
         _parentNode.sizeThatFitsBlock = { _ in
-            return ASOverlayLayoutSpec(child: childNode, overlay: overlayNode)
+            return ASOverlayLayoutSpec(child: overlayChildNode, overlay: overlayNode)
         }
 
-        _parentNode.addSubnode(childNode)
+        _parentNode.addSubnode(overlayChildNode)
         _parentNode.addSubnode(overlayNode)
         mutableLayoutSpecData.append(_parentNode)
-        
-        
-        // MARK: - ASCenterLayoutSpec
-        childNode = self.childNode
 
-        _parentNode = parentNode(with: childNode)
+
+        // MARK: - ASCenterLayoutSpec
+        let centerChildNode = self.childNode()
+
+        _parentNode = parentNode(with: centerChildNode)
         _parentNode.entryTitle = "ASCenterLayoutSpec"
         _parentNode.entryDescription = "Centers a component in the available space."
         _parentNode.sizeThatFitsBlock = { _ in
-            return ASCenterLayoutSpec(centeringOptions: .XY, sizingOptions: [], child: childNode)
+            return ASCenterLayoutSpec(centeringOptions: .XY, sizingOptions: [], child: centerChildNode)
         }
-        _parentNode.addSubnode(childNode)
+        _parentNode.addSubnode(centerChildNode)
         mutableLayoutSpecData.append(_parentNode)
 
 
         // MARK: - ASRatioLayoutSpec
-        childNode = self.childNode
+        let ratioChildNode = self.childNode()
 
-        _parentNode = parentNode(with: childNode)
+        _parentNode = parentNode(with: ratioChildNode)
         _parentNode.entryTitle = "ASRatioLayoutSpec"
         _parentNode.entryDescription = "Lays out a component at a fixed aspect ratio. Great for images, gifs and videos."
         _parentNode.sizeThatFitsBlock = { _ in
-            return ASRatioLayoutSpec(ratio: 0.25, child: childNode)
+            return ASRatioLayoutSpec(ratio: 0.25, child: ratioChildNode)
         }
-        _parentNode.addSubnode(childNode)
+        _parentNode.addSubnode(ratioChildNode)
         mutableLayoutSpecData.append(_parentNode)
-        
+
 
         // MARK: - ASRelativeLayoutSpec
-        childNode = self.childNode
-        
-        _parentNode = parentNode(with: childNode)
+        let relativeChildNode = self.childNode()
+
+        _parentNode = parentNode(with: relativeChildNode)
         _parentNode.entryTitle = "ASRelativeLayoutSpec"
         _parentNode.entryDescription = "Lays out a component and positions it within the layout bounds according to vertical and horizontal positional specifiers. Similar to the “9-part” image areas, a child can be positioned at any of the 4 corners, or the middle of any of the 4 edges, as well as the center."
         _parentNode.sizeThatFitsBlock = { _ in
-            return ASRelativeLayoutSpec(horizontalPosition: .end, verticalPosition: .center, sizingOption: [], child: childNode)
+            return ASRelativeLayoutSpec(horizontalPosition: .end, verticalPosition: .center, sizingOption: [], child: relativeChildNode)
         }
-        _parentNode.addSubnode(childNode)
+        _parentNode.addSubnode(relativeChildNode)
         mutableLayoutSpecData.append(_parentNode)
-        
-        
+
+
         // MARK: - ASAbsoluteLayoutSpec
-        childNode = self.childNode
+        let absoluteChildNode = self.childNode()
         // Add a layout position to the child node that the absolute layout spec will pick up and place it on that position
-        childNode.style.layoutPosition = CGPoint(x: 10.0, y: 10.0)
-        
-        _parentNode = parentNode(with: childNode)
+        absoluteChildNode.style.layoutPosition = CGPoint(x: 10.0, y: 10.0)
+
+        _parentNode = parentNode(with: absoluteChildNode)
         _parentNode.entryTitle = "ASAbsoluteLayoutSpec"
         _parentNode.entryDescription = "Allows positioning children at fixed offsets."
         _parentNode.sizeThatFitsBlock = { _ in
-            return ASAbsoluteLayoutSpec(children: [childNode])
+            return ASAbsoluteLayoutSpec(children: [absoluteChildNode])
         }
-        _parentNode.addSubnode(childNode)
+        _parentNode.addSubnode(absoluteChildNode)
         mutableLayoutSpecData.append(_parentNode)
-        
-        
+
+
         // MARK: - Vertical ASStackLayoutSpec
-        var childNode1 = self.childNode
-        childNode1.backgroundColor = UIColor.green
+        let vChildNode1 = self.childNode()
+        vChildNode1.backgroundColor = UIColor.green
 
-        var childNode2 = self.childNode
-        childNode2.backgroundColor = UIColor.blue
+        let vChildNode2 = self.childNode()
+        vChildNode2.backgroundColor = UIColor.blue
 
-        var childNode3 = self.childNode
-        childNode3.backgroundColor = UIColor.yellow
+        let vChildNode3 = self.childNode()
+        vChildNode3.backgroundColor = UIColor.yellow
 
         // If we just would add the childrent to the stack layout the layout would be to tall and run out of the edge of
         // the node as 50+50+50 = 150 but the parent node is only 100 height. To prevent that we set flexShrink on 2 of the
         // children to let the stack layout know it should shrink these children in case the layout will run over the edge
-        childNode2.style.flexShrink = 1.0
-        childNode3.style.flexShrink = 1.0
-        
-        _parentNode = parentNode(with: childNode)
+        vChildNode2.style.flexShrink = 1.0
+        vChildNode3.style.flexShrink = 1.0
+
+        let vChildNode = self.childNode()
+
+        _parentNode = parentNode(with: vChildNode)
         _parentNode.entryTitle = "Vertical ASStackLayoutSpec"
         _parentNode.entryDescription = "Is based on a simplified version of CSS flexbox. It allows you to stack components vertically or horizontally and specify how they should be flexed and aligned to fit in the available space."
 
         _parentNode.sizeThatFitsBlock = { _ in
             let verticalStackLayoutSpec = ASStackLayoutSpec.vertical()
             verticalStackLayoutSpec.alignItems = .start
-            verticalStackLayoutSpec.children = [childNode1, childNode2, childNode3]
+            verticalStackLayoutSpec.children = [vChildNode1, vChildNode2, vChildNode3]
             return verticalStackLayoutSpec
         }
-        _parentNode.addSubnode(childNode1)
-        _parentNode.addSubnode(childNode2)
-        _parentNode.addSubnode(childNode3)
+        _parentNode.addSubnode(vChildNode1)
+        _parentNode.addSubnode(vChildNode2)
+        _parentNode.addSubnode(vChildNode3)
         mutableLayoutSpecData.append(_parentNode)
-        
-        
+
+
         // MARK: - Horizontal ASStackLayoutSpec
-        childNode1 = ASDisplayNode()
+        let childNode1 = ASDisplayNode()
         childNode1.style.preferredSize = CGSize(width: 10.0, height: 20.0)
         childNode1.style.flexGrow = 1.0
         childNode1.backgroundColor = UIColor.green
-        
-        childNode2 = ASDisplayNode()
+
+        let childNode2 = ASDisplayNode()
         childNode2.style.preferredSize = CGSize(width: 10.0, height: 20.0)
         childNode2.style.alignSelf = .stretch
         childNode2.backgroundColor = UIColor.blue
-        
-        childNode3 = ASDisplayNode()
+
+        let childNode3 = ASDisplayNode()
         childNode3.style.preferredSize = CGSize(width: 10.0, height: 20.0)
         childNode3.backgroundColor = UIColor.yellow
 
+        let childNode = self.childNode()
         _parentNode = parentNode(with: childNode)
         _parentNode.entryTitle = "Horizontal ASStackLayoutSpec"
         _parentNode.entryDescription = "Is based on a simplified version of CSS flexbox. It allows you to stack components vertically or horizontally and specify how they should be flexed and aligned to fit in the available space."
@@ -215,24 +216,22 @@ class OverviewComponentsViewController: ASViewController<ASDisplayNode> {
             horizontalStackSpec.style.width = ASDimensionMakeWithFraction(1.0)
 
             // Add a bit of inset
-            return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(0.0, 5.0, 0.0, 5.0), child: horizontalStackSpec)
+            return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 0.0, left: 5.0, bottom: 0.0, right: 5.0), child: horizontalStackSpec)
         }
         _parentNode.addSubnode(childNode1)
         _parentNode.addSubnode(childNode2)
         _parentNode.addSubnode(childNode3)
         mutableLayoutSpecData.append(_parentNode)
 
-        data.append(["title" : "Layout Specs",
-                     "data" : mutableLayoutSpecData
-            ])
+        data.append(
+            [
+                "title": "Layout Specs",
+                "data": mutableLayoutSpecData
+            ]
+        )
     }
 
     var data: [[String: Any]] = []
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-
-    }
 }
 
 extension OverviewComponentsViewController: ASTableDataSource {
@@ -280,7 +279,7 @@ extension OverviewComponentsViewController: ASTableDelegate {
 
 // MARK: - Parent / Child Helper
 extension OverviewComponentsViewController {
-    var childNode: ASDisplayNode {
+    func childNode() -> ASDisplayNode {
         let childNode = ASDisplayNode()
         childNode.style.preferredSize = CGSize(width: 50, height: 50)
         childNode.backgroundColor = UIColor.blue

@@ -48,7 +48,7 @@
   
   CGGradientDrawingOptions drawingOptions;
   CGContextDrawLinearGradient(ctx, gradient, CGPointZero, CGPointMake(bounds.size.width, bounds.size.height), drawingOptions);
-  
+    
   CGGradientRelease(gradient);
   CGColorSpaceRelease(colorSpace);
 }
