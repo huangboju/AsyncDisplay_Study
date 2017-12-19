@@ -24,7 +24,10 @@ class WBStatusPicNode: ASNetworkImageNode {
         }
     }
 
-    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
-        return ASRelativeLayoutSpec(horizontalPosition: .end, verticalPosition: .end, sizingOption: [], child: badgeNode ?? ASLayoutSpec())
-    }
+//    override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {
+//        if let badgeNode = badgeNode {
+//            return ASRelativeLayoutSpec(horizontalPosition: .end, verticalPosition: .end, sizingOption: [], child: badgeNode)
+//        }
+//        return super.layoutSpecThatFits(constrainedSize)
+//    }
 }

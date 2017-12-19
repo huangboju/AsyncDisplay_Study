@@ -34,10 +34,10 @@ struct URLModel {
         pageID = dict?["page_id"]?.stringValue
 
         let picInfos = dict?["pic_infos"]?.dictionaryValue
-        let picIds = dict?["pic_ids"]?.arrayValue.flatMap { $0.stringValue }
+        let picIds: [String]? = dict?["pic_ids"]?.arrayValue.flatMap { $0.stringValue }
 
         pics = picIds?.map {
-            return PictureMetaModel(dict: picInfos?[$0.description]?.dictionaryValue["large"]?.dictionaryValue)
+            return PictureMetaModel(dict: picInfos?[$0]?.dictionaryValue["large"]?.dictionaryValue)
         }
     }
 }
