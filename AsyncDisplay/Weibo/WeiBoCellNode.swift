@@ -156,6 +156,7 @@ class WeiBoMainNode: ASDisplayNode {
         // picNodesStack
         if !picNodes.isEmpty {
             // TODO: Texture 2.2中没有flexWrap，升至Texture 2.3后优化
+
             let vPicNodes = picNodes.map {
                 ASStackLayoutSpec(direction: .horizontal, spacing: 4, justifyContent: .start, alignItems: .start, children: $0)
             }

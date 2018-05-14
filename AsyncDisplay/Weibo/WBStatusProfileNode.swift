@@ -19,6 +19,8 @@ class WBStatusProfileNode: ASDisplayNode {
     convenience init(item: ProfileModel) {
         self.init()
 
+        backgroundColor = .red
+        
         // avatarNode
         avatarNode = WBStatusPicNode(badgeName: item.badgeName)
         avatarNode.isLayerBacked = true
