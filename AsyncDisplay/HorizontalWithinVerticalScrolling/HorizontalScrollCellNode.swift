@@ -42,7 +42,7 @@ class HorizontalScrollCellNode: ASCellNode {
     override func layout() {
         super.layout()
 
-        collectionNode.view.contentInset = UIEdgeInsetsMake(0.0, kOuterPadding, 0.0, kOuterPadding)
+        collectionNode.contentInset = UIEdgeInsetsMake(0.0, kOuterPadding, 0.0, kOuterPadding)
 
         // Manually layout the divider.
         let pixelHeight = 1.0 / UIScreen.main.scale
