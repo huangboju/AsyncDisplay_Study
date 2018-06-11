@@ -35,6 +35,16 @@ DEPENDENCIES:
   - SwiftyJSON
   - Texture
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DateToolsSwift
+    - IGListKit
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
+    - SwiftyJSON
+    - Texture
+
 SPEC CHECKSUMS:
   DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
   IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
@@ -46,4 +56,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 83cf060eae7cf64323f151e9098bc274704ce017
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.3
