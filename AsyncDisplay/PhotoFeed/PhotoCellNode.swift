@@ -126,7 +126,7 @@ class PhotoCellNode: ASCellNode {
 
     func createLayerBackedTextNode(with attributedString: NSAttributedString) -> ASTextNode {
         let textNode              = ASTextNode()
-        textNode.isLayerBacked      = true
+        textNode.isLayerBacked    = true
         textNode.attributedText   = attributedString
         return textNode
     }

@@ -61,7 +61,6 @@ class TransitionNode: ASDisplayNode {
         nextTextNode!.style.flexGrow = 1.0
         nextTextNode!.style.flexShrink = 1.0
 
-        
         // 搞不懂为什么要包一层
         let horizontalStackLayout = ASStackLayoutSpec.horizontal()
         horizontalStackLayout.children = [nextTextNode!]

@@ -1,31 +1,31 @@
 PODS:
-  - DateToolsSwift (2.0.3)
-  - IGListKit (3.1.1):
-    - IGListKit/Default (= 3.1.1)
-  - IGListKit/Default (3.1.1):
+  - DateToolsSwift (4.0.0)
+  - IGListKit (3.4.0):
+    - IGListKit/Default (= 3.4.0)
+  - IGListKit/Default (3.4.0):
     - IGListKit/Diffing
-  - IGListKit/Diffing (3.1.1)
-  - PINCache (3.0.1-beta.5):
-    - PINCache/Arc-exception-safe (= 3.0.1-beta.5)
-    - PINCache/Core (= 3.0.1-beta.5)
-  - PINCache/Arc-exception-safe (3.0.1-beta.5):
+  - IGListKit/Diffing (3.4.0)
+  - PINCache (3.0.1-beta.6):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
+    - PINCache/Core (= 3.0.1-beta.6)
+  - PINCache/Arc-exception-safe (3.0.1-beta.6):
     - PINCache/Core
-  - PINCache/Core (3.0.1-beta.5):
-    - PINOperation (= 1.0.3)
-  - PINOperation (1.0.3)
-  - PINRemoteImage/Core (3.0.0-beta.12):
+  - PINCache/Core (3.0.1-beta.6):
+    - PINOperation (~> 1.1.0)
+  - PINOperation (1.1.1)
+  - PINRemoteImage/Core (3.0.0-beta.13):
     - PINOperation
-  - PINRemoteImage/iOS (3.0.0-beta.12):
+  - PINRemoteImage/iOS (3.0.0-beta.13):
     - PINRemoteImage/Core
-  - PINRemoteImage/PINCache (3.0.0-beta.12):
-    - PINCache (= 3.0.1-beta.5)
+  - PINRemoteImage/PINCache (3.0.0-beta.13):
+    - PINCache (= 3.0.1-beta.6)
     - PINRemoteImage/Core
-  - SwiftyJSON (4.0.0)
-  - Texture (2.5.1):
-    - Texture/PINRemoteImage (= 2.5.1)
-  - Texture/Core (2.5.1)
-  - Texture/PINRemoteImage (2.5.1):
-    - PINRemoteImage/iOS (= 3.0.0-beta.12)
+  - SwiftyJSON (4.1.0)
+  - Texture (2.6):
+    - Texture/PINRemoteImage (= 2.6)
+  - Texture/Core (2.6)
+  - Texture/PINRemoteImage (2.6):
+    - PINRemoteImage/iOS (= 3.0.0-beta.13)
     - PINRemoteImage/PINCache
     - Texture/Core
 
@@ -36,14 +36,14 @@ DEPENDENCIES:
   - Texture
 
 SPEC CHECKSUMS:
-  DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
-  IGListKit: cb97f405ae43e59fe1da74271e19427ec20d3c07
-  PINCache: 98e7b1ef782824ad231ade51987c218b758c30d8
-  PINOperation: ac23db44796d4a564ecf9b5ea7163510f579b71d
-  PINRemoteImage: 0cefe720c2612960bd360710efbd6c73a1991d5f
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
-  Texture: c3f06e344aa091667b7a56002e525cde674d021a
+  DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
+  IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
+  PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
+  PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
+  PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
+  SwiftyJSON: c29297daf073d2aa016295d5809cdd68045c39b3
+  Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
 
 PODFILE CHECKSUM: 83cf060eae7cf64323f151e9098bc274704ce017
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.4.0

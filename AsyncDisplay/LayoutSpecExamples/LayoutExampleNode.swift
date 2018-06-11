@@ -92,11 +92,11 @@ class PhotoWithInsetTextOverlay: LayoutExampleNode {
         backgroundColor = UIColor.clear
         
         photoNode = ASNetworkImageNode()
-        photoNode.url = URL(string: "http://uploadfile.deskcity.org/2015/0902/20150902024359322.jpg")
+        photoNode.url = URL(string: "http://desk.fd.zol-img.com.cn/t_s960x600c5/g5/M00/01/0F/ChMkJlbKwwyIDFKCAAVOwhyfl1wAALGxAK6DY8ABU7a980.jpg")
 
         photoNode.willDisplayNodeContentWithRenderingContext = { context, _ in
             let bounds = context.boundingBoxOfClipPath
-            UIBezierPath(roundedRect: bounds, cornerRadius: 10).addClip()
+            UIBezierPath(roundedRect: bounds, cornerRadius: 20).addClip()
         }
 
         titleNode = ASTextNode()
@@ -112,7 +112,7 @@ class PhotoWithInsetTextOverlay: LayoutExampleNode {
         photoNode.style.preferredSize = CGSize(width: photoDimension, height: photoDimension)
         
         // INFINITY is used to make the inset unbounded
-        let insets = UIEdgeInsetsMake(CGFloat.infinity, 12, 12, 12)
+        let insets = UIEdgeInsets(top: CGFloat.infinity, left: 12, bottom: 12, right: 12)
         let textInsetSpec = ASInsetLayoutSpec(insets: insets, child: titleNode)
 
         return ASOverlayLayoutSpec(child: photoNode, overlay: textInsetSpec)
@@ -195,6 +195,6 @@ class FlexibleSeparatorSurroundingContent: LayoutExampleNode {
         verticalStackSpec.justifyContent = .center
         verticalStackSpec.children = [topSeparator, textNode, bottomSeparator]
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(60, 0, 60, 0), child: verticalStackSpec)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 60, left: 0, bottom: 60, right: 0), child: verticalStackSpec)
     }
 }
