@@ -36,10 +36,10 @@ class CustomCollectionView: UIViewController, MosaicCollectionViewLayoutDelegate
 
         collectionNode.dataSource = self
         collectionNode.delegate = self
-        collectionNode.view.layoutInspector = _layoutInspector
+        collectionNode.layoutInspector = _layoutInspector
         collectionNode.backgroundColor = UIColor.white
         collectionNode.view.isScrollEnabled = true
-        collectionNode.registerSupplementaryNode(ofKind: UICollectionElementKindSectionHeader)
+        collectionNode.registerSupplementaryNode(ofKind: UICollectionView.elementKindSectionHeader)
     }
 
     required init?(coder aDecoder: NSCoder) {
@@ -68,8 +68,8 @@ class CustomCollectionView: UIViewController, MosaicCollectionViewLayoutDelegate
     
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> ASCellNode {
         let textAttributes: [String: Any] = [
-            NSAttributedStringKey.font.rawValue: UIFont.preferredFont(forTextStyle: .headline),
-            NSAttributedStringKey.foregroundColor.rawValue: UIColor.gray
+            NSAttributedString.Key.font.rawValue: UIFont.preferredFont(forTextStyle: .headline),
+            NSAttributedString.Key.foregroundColor.rawValue: UIColor.gray
         ]
         let textInsets = UIEdgeInsets(top: 11, left: 0, bottom: 11, right: 0)
         let textCellNode = ASTextCellNode(attributes: textAttributes, insets: textInsets)

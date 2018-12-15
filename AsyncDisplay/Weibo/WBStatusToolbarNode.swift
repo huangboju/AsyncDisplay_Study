@@ -58,7 +58,7 @@ class WBStatusToolbarNode: ASDisplayNode {
         let button = ToolBarButton()
         button.addTarget(self, action: #selector(commentsAction), forControlEvents: .touchUpInside)
         button.contentSpacing = 3
-        button.hitTestSlop = UIEdgeInsetsMake(-10, -20, -10, -20)
+        button.hitTestSlop = UIEdgeInsets.init(top: -10, left: -20, bottom: -10, right: -20)
         button.setImage(item.0, for: .normal)
         button.setAttributedTitle(item.1, for: .normal)
         return button

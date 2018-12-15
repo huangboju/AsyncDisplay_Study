@@ -7,7 +7,7 @@ target 'AsyncDisplay' do
 
 pod 'Texture', :inhibit_warnings => true
 pod 'SwiftyJSON', :inhibit_warnings => true
-pod 'IGListKit', '~> 3.0', :inhibit_warnings => true
+pod 'IGListKit', :inhibit_warnings => true
 pod 'DateToolsSwift', :inhibit_warnings => true
 
   target 'AsyncDisplayUITests' do

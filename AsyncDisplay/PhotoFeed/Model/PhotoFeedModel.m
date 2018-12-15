@@ -167,7 +167,7 @@
       if (block) {
         block(newPhotos);
       }
-      _refreshFeedInProgress = NO;
+        self->_refreshFeedInProgress = NO;
     } numResultsToReturn:numResults replaceData:YES];
   }
 }
@@ -230,19 +230,19 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
           if (replaceData) {
-            _photos = [newPhotos mutableCopy];
-            _ids = [newIDs mutableCopy];
+              self->_photos = [newPhotos mutableCopy];
+              self->_ids = [newIDs mutableCopy];
           } else {
-            [_photos addObjectsFromArray:newPhotos];
-            [_ids addObjectsFromArray:newIDs];
+              [self->_photos addObjectsFromArray:newPhotos];
+              [self->_ids addObjectsFromArray:newIDs];
           }
           if (block) {
             block(newPhotos);
           }
-          _fetchPageInProgress = NO;
+            self->_fetchPageInProgress = NO;
         });
       }];
-      [_task resume];
+        [self->_task resume];
     }
   });
 }

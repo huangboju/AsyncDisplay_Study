@@ -95,7 +95,7 @@ class KittenNode: ASCellNode {
         return string
     }
     
-    var textStyle: [NSAttributedStringKey: Any] {
+    var textStyle: [NSAttributedString.Key: Any] {
         
         let font = UIFont(name: "HelveticaNeue", size: 12)!
         
@@ -106,7 +106,7 @@ class KittenNode: ASCellNode {
         return [
             .font: font,
             .paragraphStyle: style,
-             NSAttributedStringKey(ASTextNodeWordKerningAttributeName): 0.5
+             NSAttributedString.Key(ASTextNodeWordKerningAttributeName): 0.5
         ]
     }
 
@@ -124,7 +124,7 @@ class KittenNode: ASCellNode {
             ASStackLayoutSpec(direction: .horizontal, spacing: kInnerPadding, justifyContent: .start, alignItems: .start, children: swappedTextAndImage ? [textNode, imageNode] : [imageNode, textNode])
 
         // Add inset
-        return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(kOuterPadding, kOuterPadding, kOuterPadding, kOuterPadding), child: stackLayoutSpec)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: kOuterPadding, left: kOuterPadding, bottom: kOuterPadding, right: kOuterPadding), child: stackLayoutSpec)
     }
 
     // With box model, you don't need to override this method, unless you want to add custom logic.

@@ -30,8 +30,7 @@
   return [UIColor colorWithHue:hue saturation:saturation brightness:brightness alpha:1];
 }
 
-+ (void)drawRect:(CGRect)bounds withParameters:(id<NSObject>)parameters isCancelled:(asdisplaynode_iscancelled_block_t)isCancelledBlock isRasterizing:(BOOL)isRasterizing
-{
++ (void)drawRect:(CGRect)bounds withParameters:(id)parameters isCancelled:(asdisplaynode_iscancelled_block_t)isCancelledBlock isRasterizing:(BOOL)isRasterizing {
   CGFloat locations[3];
   NSMutableArray *colors = [NSMutableArray arrayWithCapacity:3];
   [colors addObject:(id)[[RandomCoreGraphicsNode randomColor] CGColor]];

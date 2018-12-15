@@ -38,8 +38,8 @@ class MosaicCollectionViewLayout: UICollectionViewFlowLayout {
         numberOfColumns = 2
         columnSpacing = 10.0
         headerHeight = 44.0 //viewcontroller
-        _sectionInset = UIEdgeInsetsMake(10.0, 10.0, 10.0, 10.0)
-        interItemSpacing = UIEdgeInsetsMake(10.0, 0, 10.0, 0)
+        _sectionInset = UIEdgeInsets.init(top: 10.0, left: 10.0, bottom: 10.0, right: 10.0)
+        interItemSpacing = UIEdgeInsets.init(top: 10.0, left: 0, bottom: 10.0, right: 0)
         super.init()
         scrollDirection = .vertical
     }
@@ -71,7 +71,7 @@ class MosaicCollectionViewLayout: UICollectionViewFlowLayout {
             if headerHeight > 0 {
                 let headerSize = _headerSizeForSection(section: section)
 
-                let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, with: IndexPath(row: 0, section: section))
+                let attributes = UICollectionViewLayoutAttributes(forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, with: IndexPath(row: 0, section: section))
 
                 attributes.frame = CGRect(x: _sectionInset.left, y: top, width: headerSize.width, height: headerSize.height)
                 _headerAttributes.append(attributes)
@@ -129,7 +129,7 @@ class MosaicCollectionViewLayout: UICollectionViewFlowLayout {
     }
 
     override func layoutAttributesForSupplementaryView(ofKind elementKind: String, at indexPath: IndexPath) -> UICollectionViewLayoutAttributes? {
-        if elementKind == UICollectionElementKindSectionHeader {
+        if elementKind == UICollectionView.elementKindSectionHeader {
             return _headerAttributes[indexPath.section]
         }
         return nil
@@ -217,7 +217,7 @@ class MosaicCollectionViewLayoutInspector: NSObject, ASCollectionViewLayoutInspe
      * Asks the inspector for the number of supplementary sections in the collection view for the given kind.
      */
     func collectionView(_ collectionView: ASCollectionView, numberOfSectionsForSupplementaryNodeOfKind kind: String) -> UInt {
-        if kind == UICollectionElementKindSectionHeader {
+        if kind == UICollectionView.elementKindSectionHeader {
             return UInt((collectionView.dataSource?.numberOfSections!(in: collectionView))!)
         } else {
             return 0
@@ -228,7 +228,7 @@ class MosaicCollectionViewLayoutInspector: NSObject, ASCollectionViewLayoutInspe
      * Asks the inspector for the number of supplementary views for the given kind in the specified section.
      */
     func collectionView(_ collectionView: ASCollectionView, supplementaryNodesOfKind kind: String, inSection section: UInt) -> UInt {
-        if kind == UICollectionElementKindSectionHeader {
+        if kind == UICollectionView.elementKindSectionHeader {
             return 1
         } else {
             return 0

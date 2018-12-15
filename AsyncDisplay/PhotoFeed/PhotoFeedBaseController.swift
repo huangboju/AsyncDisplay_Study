@@ -16,7 +16,7 @@ protocol PhotoFeedControllerProtocol {
 class PhotoFeedBaseController: ASViewController<ASDisplayNode> {
     
     private lazy var activityIndicatorView: UIActivityIndicatorView = {
-        let activityIndicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        let activityIndicatorView = UIActivityIndicatorView(style: .gray)
         return activityIndicatorView
     }()
     

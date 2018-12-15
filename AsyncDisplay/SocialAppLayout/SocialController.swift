@@ -37,8 +37,8 @@ class SocialController: ASViewController<ASTableNode> {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         let inset: CGFloat = 64
-        tableNode.contentInset = UIEdgeInsetsMake(-inset, 0, inset, 0)
-        tableNode.view.scrollIndicatorInsets = UIEdgeInsetsMake(-inset, 0, inset, 0)
+        tableNode.contentInset = UIEdgeInsets.init(top: -inset, left: 0, bottom: inset, right: 0)
+        tableNode.view.scrollIndicatorInsets = UIEdgeInsets.init(top: -inset, left: 0, bottom: inset, right: 0)
     }
 
     func createSocialAppDataSource() {

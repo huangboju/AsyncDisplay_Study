@@ -28,11 +28,11 @@ class BlurbNode: ASCellNode, ASTextNodeDelegate {
         let blurb = "kittens courtesy placekitten.com 😸"
 
         let string = NSMutableAttributedString(string: blurb)
-        string.addAttribute(NSAttributedStringKey.font, value: UIFont(name: "HelveticaNeue-Light", size: 16)!, range: NSMakeRange(0, blurb.length))
+        string.addAttribute(NSAttributedString.Key.font, value: UIFont(name: "HelveticaNeue-Light", size: 16)!, range: NSMakeRange(0, blurb.length))
         string.addAttributes([
             kLinkAttributeName: URL(string: "http://placekitten.com/")!,
             .foregroundColor: UIColor.gray,
-            .underlineStyle: NSUnderlineStyle.styleSingle.rawValue | NSUnderlineStyle.patternDot.rawValue
+            .underlineStyle: NSUnderlineStyle.single.rawValue | NSUnderlineStyle.patternDot.rawValue
             ], range: (blurb as NSString).range(of: "placekitten.com"))
 
         textNode.attributedText = string
@@ -54,7 +54,7 @@ class BlurbNode: ASCellNode, ASTextNodeDelegate {
         centerSpec.sizingOptions = .minimumY
         centerSpec.child = textNode
 
-        let padding = UIEdgeInsetsMake(kTextPadding, kTextPadding, kTextPadding, kTextPadding)
+        let padding = UIEdgeInsets.init(top: kTextPadding, left: kTextPadding, bottom: kTextPadding, right: kTextPadding)
         return ASInsetLayoutSpec(insets: padding, child: centerSpec)
     }
     

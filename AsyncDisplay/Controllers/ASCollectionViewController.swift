@@ -16,8 +16,8 @@ class ASCollectionViewController: UIViewController {
         layout.footerReferenceSize = CGSize(width: 50.0, height: 50.0)
 
         let collectionNode = ASCollectionNode(frame: self.view.bounds, collectionViewLayout: layout)
-        collectionNode.registerSupplementaryNode(ofKind: UICollectionElementKindSectionHeader)
-        collectionNode.registerSupplementaryNode(ofKind: UICollectionElementKindSectionFooter)
+        collectionNode.registerSupplementaryNode(ofKind: UICollectionView.elementKindSectionHeader)
+        collectionNode.registerSupplementaryNode(ofKind: UICollectionView.elementKindSectionFooter)
         collectionNode.dataSource = self
         collectionNode.delegate = self
 
@@ -50,9 +50,9 @@ extension ASCollectionViewController: ASCollectionDataSource {
     }
 
     func collectionNode(_ collectionNode: ASCollectionNode, nodeForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> ASCellNode {
-        let text = kind == UICollectionElementKindSectionHeader ? "Header" : "Footer"
+        let text = kind == UICollectionView.elementKindSectionHeader ? "Header" : "Footer"
         let node = SupplementaryNode(text: text)
-        let isHeaderSection = kind == UICollectionElementKindSectionHeader
+        let isHeaderSection = kind == UICollectionView.elementKindSectionHeader
         node.backgroundColor = isHeaderSection ? UIColor.blue : UIColor.red
         return node
     }

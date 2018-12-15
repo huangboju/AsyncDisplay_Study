@@ -36,7 +36,7 @@ extension NSShadow {
 extension NSAttributedString {
     convenience init(forTitleText text: String) {
         
-        let titleAttributes: [NSAttributedStringKey: Any] = [
+        let titleAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name: "AvenirNext-Heavy", size: 30)!,
             .foregroundColor: UIColor.white,
             .shadow: NSShadow.titleTextShadow,
@@ -47,7 +47,7 @@ extension NSAttributedString {
     }
     
     convenience init(forDescription text: String) {
-        let descriptionAttributes: [NSAttributedStringKey: Any] = [
+        let descriptionAttributes: [NSAttributedString.Key: Any] = [
             .font: UIFont(name: "AvenirNext-Medium", size: 16)!,
             .foregroundColor: UIColor.white,
             .backgroundColor: UIColor.clear,
@@ -60,8 +60,8 @@ extension NSAttributedString {
 
     convenience init(string: String, fontSize size: CGFloat, color: UIColor?) {
         let attributes = [
-            NSAttributedStringKey.foregroundColor: color ?? UIColor.black,
-            NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: size)
+            NSAttributedString.Key.foregroundColor: color ?? UIColor.black,
+            NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: size)
         ]
         self.init(string: string, attributes: attributes)
     }
