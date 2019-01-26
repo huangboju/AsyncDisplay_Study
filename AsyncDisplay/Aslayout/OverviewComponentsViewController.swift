@@ -249,7 +249,7 @@ extension OverviewComponentsViewController: ASTableDataSource {
         return {
             let cellNode = OverviewTitleDescriptionCellNode()
 
-            let titleNodeAttributes: [NSAttributedStringKey: Any] = [
+            let titleNodeAttributes: [NSAttributedString.Key: Any] = [
                 .font: UIFont.boldSystemFont(ofSize: 14.0),
                 .foregroundColor: UIColor.black
             ]
@@ -258,7 +258,7 @@ extension OverviewComponentsViewController: ASTableDataSource {
 
             if let entryDescription = node?.entryDescription {
                 let descriptionNodeAttributes = [
-                    NSAttributedStringKey.foregroundColor: UIColor.lightGray
+                    NSAttributedString.Key.foregroundColor: UIColor.lightGray
                 ]
                 cellNode.descriptionNode.attributedText = NSAttributedString(string: entryDescription, attributes: descriptionNodeAttributes)
             }

@@ -34,6 +34,6 @@ class OverviewCellNode: ASCellNode {
         verticalStackSpec.spacing = 5.0
         verticalStackSpec.children = [titleNode, descriptionNode]
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(10, 16, 10, 10), child: verticalStackSpec)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 10, left: 16, bottom: 10, right: 10), child: verticalStackSpec)
     }
 }

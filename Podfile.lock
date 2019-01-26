@@ -1,10 +1,10 @@
 PODS:
-  - DateToolsSwift (2.0.3)
-  - IGListKit (3.2.0):
-    - IGListKit/Default (= 3.2.0)
-  - IGListKit/Default (3.2.0):
+  - DateToolsSwift (4.0.0)
+  - IGListKit (3.4.0):
+    - IGListKit/Default (= 3.4.0)
+  - IGListKit/Default (3.4.0):
     - IGListKit/Diffing
-  - IGListKit/Diffing (3.2.0)
+  - IGListKit/Diffing (3.4.0)
   - PINCache (3.0.1-beta.6):
     - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
     - PINCache/Core (= 3.0.1-beta.6)
@@ -20,7 +20,7 @@ PODS:
   - PINRemoteImage/PINCache (3.0.0-beta.13):
     - PINCache (= 3.0.1-beta.6)
     - PINRemoteImage/Core
-  - SwiftyJSON (4.0.0)
+  - SwiftyJSON (4.2.0)
   - Texture (2.6):
     - Texture/PINRemoteImage (= 2.6)
   - Texture/Core (2.6)
@@ -31,19 +31,29 @@ PODS:
 
 DEPENDENCIES:
   - DateToolsSwift
-  - IGListKit (~> 3.0)
+  - IGListKit
   - SwiftyJSON
   - Texture
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - DateToolsSwift
+    - IGListKit
+    - PINCache
+    - PINOperation
+    - PINRemoteImage
+    - SwiftyJSON
+    - Texture
+
 SPEC CHECKSUMS:
-  DateToolsSwift: bf69bf9056d9e53c5c03f06e51f219b9b8b02f9e
-  IGListKit: ffe6f98a728ab0250aceea22e7957aa5477c5048
+  DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
+  IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
   PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
   PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
-  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+  SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
   Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
 
-PODFILE CHECKSUM: 83cf060eae7cf64323f151e9098bc274704ce017
+PODFILE CHECKSUM: d2d3ac72ad34ac336ed130f2d4265f8cb07c931f
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3

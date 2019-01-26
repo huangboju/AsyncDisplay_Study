@@ -27,7 +27,7 @@ class ASAnimatedImage: UIViewController {
         
         let postNode = ASTextNode()
         postNode.frame = CGRect(x: 0, y: 64, width: screenW, height: 100)
-        let kLinkAttributeName = NSAttributedStringKey("TextLinkAttributeName")
+        let kLinkAttributeName = NSAttributedString.Key("TextLinkAttributeName")
         let str = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. https://github.com/facebook/AsyncDisplayKit Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 
         let attrString = NSMutableAttributedString(string: str, attributes: TextStyles.postStyle)

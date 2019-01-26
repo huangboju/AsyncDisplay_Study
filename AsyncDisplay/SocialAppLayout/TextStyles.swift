@@ -7,38 +7,38 @@
 //
 
 struct TextStyles {
-    static let cellControlColoredStyle: [NSAttributedStringKey: Any] = [
+    static let cellControlColoredStyle: [NSAttributedString.Key: Any] = [
         .font: UIFont.systemFont(ofSize: 13),
         .foregroundColor: UIColor(red: 59.0/255.0, green: 89.0/255.0, blue: 152.0/255.0, alpha: 1)
     ]
     
-    static let nameStyle: [NSAttributedStringKey: Any] = [
+    static let nameStyle: [NSAttributedString.Key: Any] = [
         .font: UIFont.boldSystemFont(ofSize: 15),
         .foregroundColor: UIColor.black
     ]
 
-    static let usernameStyle: [NSAttributedStringKey: Any] = [
+    static let usernameStyle: [NSAttributedString.Key: Any] = [
         .font: UIFont.systemFont(ofSize: 13),
         .foregroundColor: UIColor.lightGray
     ]
     
-    static let timeStyle: [NSAttributedStringKey: Any] = [
+    static let timeStyle: [NSAttributedString.Key: Any] = [
         .font: UIFont.systemFont(ofSize: 13),
         .foregroundColor: UIColor.gray
     ]
     
-    static let postStyle: [NSAttributedStringKey: Any] = [
+    static let postStyle: [NSAttributedString.Key: Any] = [
         .font: UIFont.systemFont(ofSize: 15),
         .foregroundColor: UIColor.black
     ]
 
-    static let postLinkStyle: [NSAttributedStringKey: Any] = [
+    static let postLinkStyle: [NSAttributedString.Key: Any] = [
         .font: UIFont.systemFont(ofSize: 15),
         .foregroundColor: UIColor(red: 59.0/255.0, green: 89.0/255.0, blue: 152.0/255.0, alpha: 1),
-        .underlineStyle: NSUnderlineStyle.styleSingle.rawValue
+        .underlineStyle: NSUnderlineStyle.single.rawValue
     ]
 
-    static let cellControlStyle: [NSAttributedStringKey: Any] = [
+    static let cellControlStyle: [NSAttributedString.Key: Any] = [
         .font : UIFont.systemFont(ofSize: 13),
         .foregroundColor: UIColor.lightGray
     ]

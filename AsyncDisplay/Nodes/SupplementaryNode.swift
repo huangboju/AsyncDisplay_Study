@@ -29,7 +29,7 @@ class SupplementaryNode: ASCellNode {
     }
     
     
-    var textAttributes: [NSAttributedStringKey: Any] {
+    var textAttributes: [NSAttributedString.Key: Any] {
         return [
             .font: UIFont.systemFont(ofSize:18.0),
             .foregroundColor: UIColor.white,

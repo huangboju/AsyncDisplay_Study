@@ -167,7 +167,7 @@
       if (block) {
         block(newPhotos);
       }
-      _refreshFeedInProgress = NO;
+        self->_refreshFeedInProgress = NO;
     } numResultsToReturn:numResults replaceData:YES];
   }
 }
@@ -198,19 +198,19 @@
     NSMutableArray *newIDs = [NSMutableArray array];
     
     @synchronized(self) {
-      NSUInteger nextPage      = _currentPage + 1;
-      NSString *imageSizeParam = [ImageURLModel imageParameterForClosestImageSize:_imageSize];
+        NSUInteger nextPage      = self->_currentPage + 1;
+        NSString *imageSizeParam = [ImageURLModel imageParameterForClosestImageSize:self->_imageSize];
       NSString *urlAdditions   = [NSString stringWithFormat:@"&page=%lu&rpp=%lu%@", (unsigned long)nextPage, (long)numPhotos, imageSizeParam];
-      NSURL *url               = [NSURL URLWithString:[_urlString stringByAppendingString:urlAdditions]];
+        NSURL *url               = [NSURL URLWithString:[self->_urlString stringByAppendingString:urlAdditions]];
       NSURLSession *session    = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-      _task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        self->_task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         if (data) {
           NSDictionary *response = [NSJSONSerialization JSONObjectWithData:data options:0 error:NULL];
           
           if ([response isKindOfClass:[NSDictionary class]]) {
-            _currentPage = [[response valueForKeyPath:@"current_page"] integerValue];
-            _totalPages  = [[response valueForKeyPath:@"total_pages"] integerValue];
-            _totalItems  = [[response valueForKeyPath:@"total_items"] integerValue];
+              self->_currentPage = [[response valueForKeyPath:@"current_page"] integerValue];
+              self->_totalPages  = [[response valueForKeyPath:@"total_pages"] integerValue];
+              self->_totalItems  = [[response valueForKeyPath:@"total_items"] integerValue];
             
             NSArray *photos = [response valueForKeyPath:@"photos"];
             if ([photos isKindOfClass:[NSArray class]]) {
@@ -218,7 +218,7 @@
                 if ([response isKindOfClass:[NSDictionary class]]) {
                   PhotoModel *photo = [[PhotoModel alloc] initWith500pxPhoto:photoDictionary];
                   if (photo) {
-                    if (replaceData || ![_ids containsObject:photo.photoID]) {
+                      if (replaceData || ![self->_ids containsObject:photo.photoID]) {
                       [newPhotos addObject:photo];
                       [newIDs addObject:photo.photoID];
                     }
@@ -230,19 +230,19 @@
         }
         dispatch_async(dispatch_get_main_queue(), ^{
           if (replaceData) {
-            _photos = [newPhotos mutableCopy];
-            _ids = [newIDs mutableCopy];
+              self->_photos = [newPhotos mutableCopy];
+              self->_ids = [newIDs mutableCopy];
           } else {
-            [_photos addObjectsFromArray:newPhotos];
-            [_ids addObjectsFromArray:newIDs];
+              [self->_photos addObjectsFromArray:newPhotos];
+              [self->_ids addObjectsFromArray:newIDs];
           }
           if (block) {
             block(newPhotos);
           }
-          _fetchPageInProgress = NO;
+            self->_fetchPageInProgress = NO;
         });
       }];
-      [_task resume];
+        [self->_task resume];
     }
   });
 }

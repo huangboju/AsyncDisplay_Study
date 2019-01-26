@@ -26,7 +26,7 @@ class CommentsNode: ASControlNode {
         addSubnode(countNode)
 
         // make it tappable easily
-        hitTestSlop = UIEdgeInsetsMake(-10, -10, -10, -10)
+        hitTestSlop = UIEdgeInsets.init(top: -10, left: -10, bottom: -10, right: -10)
     }
 
     override func layoutSpecThatFits(_ constrainedSize: ASSizeRange) -> ASLayoutSpec {

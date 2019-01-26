@@ -81,11 +81,11 @@ class CardCellNode: ASCellNode {
 
         let relativeSpec = ASRelativeLayoutSpec(horizontalPosition: .start, verticalPosition: .end, sizingOption: [], child: animalNameTextNode)
 
-        let nameInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(0, 16, 8, 0), child: relativeSpec)
+        let nameInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 0, left: 16, bottom: 8, right: 0), child: relativeSpec)
 
         let nameOverlaySpec = ASOverlayLayoutSpec(child: gradientOverlaySpec, overlay: nameInsetSpec)
 
-        let descriptionTextInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsetsMake(16.0, 28.0, 12.0, 28.0), child: animalDescriptionTextNode)
+        let descriptionTextInsetSpec = ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 16.0, left: 28.0, bottom: 12.0, right: 28.0), child: animalDescriptionTextNode)
 
         let verticalStackSpec = ASStackLayoutSpec(direction: .vertical, spacing: 0, justifyContent: .start, alignItems: .start, children: [nameOverlaySpec, descriptionTextInsetSpec])
 

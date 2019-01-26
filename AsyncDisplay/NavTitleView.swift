@@ -8,7 +8,7 @@ class NavTitleView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        indicatorView = UIActivityIndicatorView(activityIndicatorStyle: .gray)
+        indicatorView = UIActivityIndicatorView(style: .gray)
         addSubview(indicatorView!)
         textLabel = UILabel()
         textLabel?.font = UIFont.boldSystemFont(ofSize: 17)

@@ -92,14 +92,14 @@
   [geocoder reverseGeocodeLocation:location completionHandler:^(NSArray<CLPlacemark *> * _Nullable placemarks, NSError * _Nullable error) {
     
     // completion handler gets called on main thread
-    _placemark      = [placemarks lastObject];
-    _locationString = [self locationStringFromCLPlacemark];
+      self->_placemark      = [placemarks lastObject];
+      self->_locationString = [self locationStringFromCLPlacemark];
     
     // check if completion block set, call it - DO NOT CALL A NIL BLOCK!
-    if (_placemarkCallbackBlock) {
+      if (self->_placemarkCallbackBlock) {
       
       // call the block with arguments
-      _placemarkCallbackBlock(self);
+          self->_placemarkCallbackBlock(self);
     }
   }];
 }

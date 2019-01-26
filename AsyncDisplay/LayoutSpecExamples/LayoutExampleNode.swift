@@ -71,7 +71,7 @@ class HeaderWithRightAndLeftItems: LayoutExampleNode {
         }
 
         let headerStackSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 40, justifyContent: .start, alignItems: .center, children: [nameLocationStack, postTimeNode])
-        return ASInsetLayoutSpec(insets: UIEdgeInsetsMake(0, 10, 0, 10), child: headerStackSpec)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 0, left: 10, bottom: 0, right: 10), child: headerStackSpec)
     }
 }
 

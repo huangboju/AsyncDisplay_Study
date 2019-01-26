@@ -60,7 +60,7 @@
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
     
     NSURLSession *session      = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
-    NSURLSessionDataTask *task = [session dataTaskWithURL:_userPicURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+      NSURLSessionDataTask *task = [session dataTaskWithURL:self->_userPicURL completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
       if (data) {
         UIImage *image = [UIImage imageWithData:data];
     
@@ -110,7 +110,7 @@
   dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
   
     // fetch JSON data from server
-    NSString *urlString     = [NSString stringWithFormat:@"https://api.500px.com/v1/users/show?id=%lu&consumer_key=Fi13GVb8g53sGvHICzlram7QkKOlSDmAmp9s9aqC", (unsigned long)_userID];
+      NSString *urlString     = [NSString stringWithFormat:@"https://api.500px.com/v1/users/show?id=%lu&consumer_key=Fi13GVb8g53sGvHICzlram7QkKOlSDmAmp9s9aqC", (unsigned long)self->_userID];
     
     NSURL *url              = [NSURL URLWithString:urlString];
     NSURLSession *session   = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
@@ -124,15 +124,15 @@
         }
         
         dispatch_async(dispatch_get_main_queue(), ^{
-          _fullUserInfoFetchDone = YES;
+            self->_fullUserInfoFetchDone = YES;
           
-          if (_fullUserInfoCompletionBlock) {
-            _fullUserInfoCompletionBlock(self);
+            if (self->_fullUserInfoCompletionBlock) {
+                self->_fullUserInfoCompletionBlock(self);
             
             // IT IS ESSENTIAL to nil the block, as it retains a view controller BECAUSE it uses an instance variable which
             // means that self is retained. It could continue to live on forever
             // If we don't release this.
-            _fullUserInfoCompletionBlock = nil;
+                self->_fullUserInfoCompletionBlock = nil;
           }
         });
       }

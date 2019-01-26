@@ -123,7 +123,7 @@
       if (block) {
         block(newPhotos);
       }
-      _refreshFeedInProgress = NO;
+        self->_refreshFeedInProgress = NO;
     } replaceData:YES];
   }
 }
@@ -147,10 +147,10 @@
     
     NSMutableArray *newComments = [NSMutableArray array];
     
-    NSUInteger nextPage = _currentPage + 1;
+      NSUInteger nextPage = self->_currentPage + 1;
     
     NSString *urlAdditions = [NSString stringWithFormat:@"page=%lu", (unsigned long)nextPage];
-    NSURL *url = [NSURL URLWithString:[_urlString stringByAppendingString:urlAdditions]];
+      NSURL *url = [NSURL URLWithString:[self->_urlString stringByAppendingString:urlAdditions]];
     NSURLSession *session      = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration ephemeralSessionConfiguration]];
     NSURLSessionDataTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
       
@@ -160,9 +160,9 @@
         
         if ([response isKindOfClass:[NSDictionary class]]) {
           
-          _currentPage = [[response valueForKeyPath:@"current_page"] integerValue];
-          _totalPages  = [[response valueForKeyPath:@"total_pages"] integerValue];
-          _totalItems  = [[response valueForKeyPath:@"total_items"] integerValue];
+            self->_currentPage = [[response valueForKeyPath:@"current_page"] integerValue];
+            self->_totalPages  = [[response valueForKeyPath:@"total_pages"] integerValue];
+            self->_totalItems  = [[response valueForKeyPath:@"total_items"] integerValue];
           
           NSArray *comments = [response valueForKeyPath:@"comments"];
           
@@ -188,11 +188,11 @@
         }
       }
       dispatch_async(dispatch_get_main_queue(), ^{
-        _fetchPageInProgress = NO;
+          self->_fetchPageInProgress = NO;
         if (replaceData) {
-          _comments = [newComments mutableCopy];
+            self->_comments = [newComments mutableCopy];
         } else {
-          [_comments addObjectsFromArray:newComments];
+            [self->_comments addObjectsFromArray:newComments];
         }
         if (block) {
           block(newComments);

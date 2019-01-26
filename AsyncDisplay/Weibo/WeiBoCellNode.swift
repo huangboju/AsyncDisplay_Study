@@ -39,7 +39,7 @@ class WeiBoMainNode: ASDisplayNode {
 
     var retweetBgNode: ASDisplayNode?
 
-    lazy var picNodes: [[ASNetworkImageNode]] = []
+    lazy var picNodes: [ASInsetLayoutSpec] = []
     
     var linkManager: LinkManager?
 
@@ -93,8 +93,7 @@ class WeiBoMainNode: ASDisplayNode {
 
         if let picsMode = item.pics {
             let side = ASDimensionMake(picsMode.count > 1 ? 96 : 148)
-            let count = 3
-            for (i, item) in picsMode.enumerated() {
+            for item in picsMode {
                 let imageNode = WBStatusPicNode(badgeName: item.badgeName)
                 imageNode.backgroundColor = UIColor(white: 0.8, alpha: 1)
                 imageNode.style.width = side
@@ -102,12 +101,7 @@ class WeiBoMainNode: ASDisplayNode {
                 // TODO: 微博的图片是WebP Image
                 imageNode.url = item.url
                 addSubnode(imageNode)
-
-                if picNodes.isEmpty || i % count == 0 {
-                    picNodes.append([imageNode])
-                } else {
-                    picNodes[i / count].append(imageNode)
-                }
+                picNodes.append(ASInsetLayoutSpec(insets: UIEdgeInsets(top: 4, left: 0, bottom: 0, right: 4), child: imageNode))
             }
         }
 
@@ -155,16 +149,12 @@ class WeiBoMainNode: ASDisplayNode {
 
         // picNodesStack
         if !picNodes.isEmpty {
-            // TODO: Texture 2.2中没有flexWrap，升至Texture 2.3后优化
-
-            let vPicNodes = picNodes.map {
-                ASStackLayoutSpec(direction: .horizontal, spacing: 4, justifyContent: .start, alignItems: .start, children: $0)
-            }
             // !!!: 当设置为竖直方向时，主轴和交叉轴也会变
-            let picsStack = ASStackLayoutSpec(direction: .vertical, spacing: 4, justifyContent: .start, alignItems: .start, children: vPicNodes)
+            let picsStack = ASStackLayoutSpec(direction: .horizontal, spacing: 0, justifyContent: .start, alignItems: .start, children: picNodes)
 
             children.append(picsStack)
             picsStack.style.spacingBefore = 8
+            picsStack.flexWrap = .wrap
         }
 
         if let cardNode = cardNode {

@@ -16,9 +16,9 @@ let HORIZONTAL_BUFFER: CGFloat      = 10
 let VERTICAL_BUFFER: CGFloat        = 5
 let FONT_SIZE: CGFloat              = 14
 
-let InsetForAvatar = UIEdgeInsetsMake(HORIZONTAL_BUFFER, 0, HORIZONTAL_BUFFER, HORIZONTAL_BUFFER)
-let InsetForHeader = UIEdgeInsetsMake(0, HORIZONTAL_BUFFER, 0, HORIZONTAL_BUFFER)
-let InsetForFooter = UIEdgeInsetsMake(VERTICAL_BUFFER, HORIZONTAL_BUFFER, VERTICAL_BUFFER, HORIZONTAL_BUFFER)
+let InsetForAvatar = UIEdgeInsets.init(top: HORIZONTAL_BUFFER, left: 0, bottom: HORIZONTAL_BUFFER, right: HORIZONTAL_BUFFER)
+let InsetForHeader = UIEdgeInsets.init(top: 0, left: HORIZONTAL_BUFFER, bottom: 0, right: HORIZONTAL_BUFFER)
+let InsetForFooter = UIEdgeInsets.init(top: VERTICAL_BUFFER, left: HORIZONTAL_BUFFER, bottom: VERTICAL_BUFFER, right: HORIZONTAL_BUFFER)
 
 import AsyncDisplayKit
 

@@ -12,7 +12,7 @@ struct PicturesModel {
     let pics: [PictureMetaModel]?
     
     init(dict: [String: JSON]) {
-        let picIds: [String]? = dict["pic_ids"]?.arrayValue.flatMap { $0.stringValue }
+        let picIds: [String]? = dict["pic_ids"]?.arrayValue.compactMap { $0.stringValue }
 
         let picInfos = dict["pic_infos"]?.dictionaryValue
 

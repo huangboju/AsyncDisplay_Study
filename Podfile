@@ -5,10 +5,10 @@ target 'AsyncDisplay' do
   # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
   use_frameworks!
 
-pod "Texture"
-pod 'SwiftyJSON'
-pod 'IGListKit', '~> 3.0'
-pod 'DateToolsSwift'
+pod 'Texture', :inhibit_warnings => true
+pod 'SwiftyJSON', :inhibit_warnings => true
+pod 'IGListKit', :inhibit_warnings => true
+pod 'DateToolsSwift', :inhibit_warnings => true
 
   target 'AsyncDisplayUITests' do
     inherit! :search_paths

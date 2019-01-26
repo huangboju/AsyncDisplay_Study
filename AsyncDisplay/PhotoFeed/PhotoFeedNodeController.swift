@@ -24,7 +24,7 @@ class PhotoFeedNodeController: PhotoFeedBaseController {
     
     override func loadView() {
         super.loadView()
-        tableNode.view.leadingScreensForBatching = 2.5
+        tableNode.leadingScreensForBatching = 2.5
     }
 
     override func viewDidLoad() {

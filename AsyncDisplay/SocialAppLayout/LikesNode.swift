@@ -31,7 +31,7 @@ class LikesNode: ASControlNode {
         addSubnode(countNode)
 
         // make it tappable easily
-        hitTestSlop = UIEdgeInsetsMake(-10, -10, -10, -10)
+        hitTestSlop = UIEdgeInsets.init(top: -10, left: -10, bottom: -10, right: -10)
     }
 
     static var getYesOrNo: Bool {

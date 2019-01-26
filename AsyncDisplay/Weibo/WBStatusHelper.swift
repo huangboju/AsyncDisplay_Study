@@ -147,20 +147,24 @@ extension NSMutableAttributedString {
         append(NSAttributedString(string: str))
     }
 
-    func addAttributes(_ attrs: [String : Any], range: NSRange? = nil) {
+<<<<<<< HEAD
+    func addAttributes(_ attrs: [NSAttributedString.Key : Any], range: NSRange? = nil) {
+=======
+    func maddAttributes(_ attrs: [NSAttributedString.Key : Any], range: NSRange? = nil) {
+>>>>>>> 0a9902a7d2dc995b5fe363346385b98692018350
         addAttributes(attrs, range: range ?? NSRange(location: 0, length: length))
     }
 
     func addForegroundColor(_ color: UIColor, range: NSRange? = nil) {
-        addAttributes([NSAttributedStringKey.foregroundColor: color], range: range ?? NSRange(location: 0, length: length))
+        addAttributes([NSAttributedString.Key.foregroundColor: color], range: range ?? NSRange(location: 0, length: length))
     }
 
     func addFont(_ font: UIFont, range: NSRange? = nil) {
-        addAttributes([NSAttributedStringKey.font: font], range: range ?? NSRange(location: 0, length: length))
+        addAttributes([NSAttributedString.Key.font: font], range: range ?? NSRange(location: 0, length: length))
     }
 
     func addParagraphStyle(_ style: NSParagraphStyle, range: NSRange? = nil) {
-        addAttributes([NSAttributedStringKey.paragraphStyle: style], range: range ?? NSRange(location: 0, length: length))
+        addAttributes([NSAttributedString.Key.paragraphStyle: style], range: range ?? NSRange(location: 0, length: length))
     }
 
     func addLink(_ url: URL, range: NSRange? = nil) {

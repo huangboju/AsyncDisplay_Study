@@ -58,7 +58,7 @@ extension NSParagraphStyle {
 
         var _alignment: CTTextAlignment = .left
         if CTParagraphStyleGetValueForSpecifier(CTStyle, .alignment, MemoryLayout<CTTextAlignment>.size, &_alignment) {
-            style?.alignment = NSTextAlignmentFromCTTextAlignment(_alignment)
+            style?.alignment = NSTextAlignment.init(_alignment)
         }
 
         var _firstLineHeadIndent: CGFloat = 0
