@@ -621,30 +621,18 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-<<<<<<< HEAD
 				LastUpgradeCheck = 1010;
-=======
-				LastUpgradeCheck = 0940;
->>>>>>> 0a9902a7d2dc995b5fe363346385b98692018350
 				ORGANIZATIONNAME = "伯驹 黄";
 				TargetAttributes = {
 					D82069D11EC3F22500405EB0 = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 46A8679957;
-<<<<<<< HEAD
 						LastSwiftMigration = 1010;
-=======
-						LastSwiftMigration = 1000;
->>>>>>> 0a9902a7d2dc995b5fe363346385b98692018350
 						ProvisioningStyle = Automatic;
 					};
 					D82069E51EC3F22600405EB0 = {
 						CreatedOnToolsVersion = 8.2.1;
-<<<<<<< HEAD
 						LastSwiftMigration = 1010;
-=======
-						LastSwiftMigration = 1000;
->>>>>>> 0a9902a7d2dc995b5fe363346385b98692018350
 						ProvisioningStyle = Automatic;
 						TestTargetID = D82069D11EC3F22500405EB0;
 					};
