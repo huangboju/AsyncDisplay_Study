@@ -147,11 +147,7 @@ extension NSMutableAttributedString {
         append(NSAttributedString(string: str))
     }
 
-<<<<<<< HEAD
     func addAttributes(_ attrs: [NSAttributedString.Key : Any], range: NSRange? = nil) {
-=======
-    func maddAttributes(_ attrs: [NSAttributedString.Key : Any], range: NSRange? = nil) {
->>>>>>> 0a9902a7d2dc995b5fe363346385b98692018350
         addAttributes(attrs, range: range ?? NSRange(location: 0, length: length))
     }
 
