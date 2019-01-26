@@ -21,10 +21,10 @@ PODS:
     - PINCache (= 3.0.1-beta.6)
     - PINRemoteImage/Core
   - SwiftyJSON (4.2.0)
-  - Texture (2.6):
-    - Texture/PINRemoteImage (= 2.6)
-  - Texture/Core (2.6)
-  - Texture/PINRemoteImage (2.6):
+  - Texture (2.7):
+    - Texture/PINRemoteImage (= 2.7)
+  - Texture/Core (2.7)
+  - Texture/PINRemoteImage (2.7):
     - PINRemoteImage/iOS (= 3.0.0-beta.13)
     - PINRemoteImage/PINCache
     - Texture/Core
@@ -52,8 +52,8 @@ SPEC CHECKSUMS:
   PINOperation: a6219e6fc9db9c269eb7a7b871ac193bcf400aac
   PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
   SwiftyJSON: c4bcba26dd9ec7a027fc8eade48e2c911f229e96
-  Texture: 7249074582daf75e524e59df5428b66b8e8db0e4
+  Texture: 9d7e38965cf22ccd7cd9c249dd78b3f14e70ab6c
 
-PODFILE CHECKSUM: d2d3ac72ad34ac336ed130f2d4265f8cb07c931f
+PODFILE CHECKSUM: eb1c5c33f5c512bf6899061e84ac1fc83de13ca3
 
 COCOAPODS: 1.5.3

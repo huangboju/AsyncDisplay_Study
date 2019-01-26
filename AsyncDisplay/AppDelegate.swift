@@ -21,9 +21,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // let num = UserDefaults.standard.string(forKey: "SBFormattedPhoneNumber")
         
         // 显示可以点击区域
-        ASControlNode.enableHitTestDebug = true
-        ASImageNode.shouldShowImageScalingOverlay = true
-        ASDisplayNode.shouldShowRangeDebugOverlay = true
+//        ASControlNode.enableHitTestDebug = true
+//        ASImageNode.shouldShowImageScalingOverlay = true
+//        ASDisplayNode.shouldShowRangeDebugOverlay = true
 
         return true
     }
