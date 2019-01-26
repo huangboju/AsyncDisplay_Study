@@ -25,7 +25,7 @@
 @implementation GradientNode
 
 + (void)drawRect:(CGRect)bounds withParameters:(id<NSObject>)parameters
-     isCancelled:(asdisplaynode_iscancelled_block_t)isCancelledBlock isRasterizing:(BOOL)isRasterizing {
+     isCancelled:(__attribute__((noescape)) asdisplaynode_iscancelled_block_t)isCancelledBlock isRasterizing:(BOOL)isRasterizing {
   CGContextRef myContext = UIGraphicsGetCurrentContext();
   CGContextSaveGState(myContext);
   CGContextClipToRect(myContext, bounds);

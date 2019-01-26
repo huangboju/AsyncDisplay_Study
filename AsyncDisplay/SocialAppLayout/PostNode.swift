@@ -139,7 +139,7 @@ class PostNode: ASCellNode {
         optionsNode.image = UIImage(named: "icon_more")
         addSubnode(optionsNode)
 
-        for node in subnodes where node != postNode {
+        for node in subnodes! where node != postNode {
             node.isLayerBacked = true
         }
     }

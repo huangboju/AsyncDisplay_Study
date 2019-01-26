@@ -27,7 +27,7 @@ class WBStatusTitleNode: ASDisplayNode {
         lineNode.backgroundColor = kWBCellLineColor
         addSubnode(lineNode)
 
-        subnodes.forEach { $0.isLayerBacked = true }
+        subnodes?.forEach { $0.isLayerBacked = true }
     }
 
     // With box model, you don't need to override this method, unless you want to add custom logic.
