@@ -100,7 +100,7 @@
 		D82333401ECC4E5600FF3945 /* ProfileModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D823333E1ECC4E5600FF3945 /* ProfileModel.swift */; };
 		D82333411ECC4E5600FF3945 /* TitleModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D823333F1ECC4E5600FF3945 /* TitleModel.swift */; };
 		D82333431ECC4ED200FF3945 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82333421ECC4ED200FF3945 /* CardModel.swift */; };
-		D82333531ECD34BA00FF3945 /* PromiseKitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82333521ECD34BA00FF3945 /* PromiseKitController.swift */; };
+		D82333531ECD34BA00FF3945 /* StackLayoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82333521ECD34BA00FF3945 /* StackLayoutController.swift */; };
 		D87AE5D11EC75E740012B866 /* WBStatusCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AE5D01EC75E740012B866 /* WBStatusCardNode.swift */; };
 /* End PBXBuildFile section */
 
@@ -236,7 +236,7 @@
 		D823333E1ECC4E5600FF3945 /* ProfileModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileModel.swift; sourceTree = "<group>"; };
 		D823333F1ECC4E5600FF3945 /* TitleModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TitleModel.swift; sourceTree = "<group>"; };
 		D82333421ECC4ED200FF3945 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
-		D82333521ECD34BA00FF3945 /* PromiseKitController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PromiseKitController.swift; sourceTree = "<group>"; };
+		D82333521ECD34BA00FF3945 /* StackLayoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayoutController.swift; sourceTree = "<group>"; };
 		D87AE5D01EC75E740012B866 /* WBStatusCardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusCardNode.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -315,7 +315,7 @@
 				D82069DE1EC3F22500405EB0 /* LaunchScreen.storyboard */,
 				D82069E11EC3F22500405EB0 /* Info.plist */,
 				D8206A0B1EC3F49D00405EB0 /* Bridging.h */,
-				D82333521ECD34BA00FF3945 /* PromiseKitController.swift */,
+				D82333521ECD34BA00FF3945 /* StackLayoutController.swift */,
 			);
 			path = AsyncDisplay;
 			sourceTree = "<group>";
@@ -779,7 +779,7 @@
 				D8206A7E1EC40F3500405EB0 /* ItemNode.swift in Sources */,
 				D81CF67D1ED2D6CD009C8A85 /* LinkManager.swift in Sources */,
 				D82333341ECC406900FF3945 /* PictureMetaModel.swift in Sources */,
-				D82333531ECD34BA00FF3945 /* PromiseKitController.swift in Sources */,
+				D82333531ECD34BA00FF3945 /* StackLayoutController.swift in Sources */,
 				D8206A6D1EC40F3500405EB0 /* ASAnimatedImage.swift in Sources */,
 				D8206A7F1EC40F3500405EB0 /* SupplementaryNode.swift in Sources */,
 				D823331C1ECBE55500FF3945 /* CommentModel.m in Sources */,

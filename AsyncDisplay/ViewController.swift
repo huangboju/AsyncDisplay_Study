@@ -49,7 +49,7 @@ class ViewController: UIViewController {
             WBStatusTimelineViewController.self
         ],
         [
-            PromiseKitController.self
+            StackLayoutController.self
         ]
     ]
 
