@@ -49,7 +49,8 @@ class ViewController: UIViewController {
             WBStatusTimelineViewController.self
         ],
         [
-            StackLayoutController.self
+            StackLayoutController.self,
+            FeedImageController.self
         ]
     ]
 
