@@ -15,9 +15,9 @@ class FeedImageController: ASViewController<ASDisplayNode> {
         
         var nodes: [ASStackLayoutSpec] = []
         
-        let count = 7
+        let count = 5
         let v = count % 3
-        for i in (0 ..< count).reversed() {
+        for i in 0 ..< count {
             let imageNode = ASNetworkImageNode()
             imageNode.backgroundColor = ASDisplayNodeDefaultPlaceholderColor()
             let preferredSize: CGSize
@@ -30,13 +30,13 @@ class FeedImageController: ASViewController<ASDisplayNode> {
             }
             imageNode.style.preferredSize = preferredSize
             node.addSubnode(imageNode)
-            if nodes.isEmpty || abs(i-count+1) % 3 == 0 {
+            if nodes.isEmpty || (i + 3 - v) % 3 == 0 {
                 let stack = ASStackLayoutSpec.horizontal()
                 stack.spacing = 4
                 stack.children = [imageNode]
-                nodes.insert(stack, at: 0)
+                nodes.append(stack)
             } else {
-                nodes[0].children?.insert(imageNode, at: 0)
+                nodes[(i + 3 - v)/3].children?.append(imageNode)
             }
         }
         
@@ -48,6 +48,22 @@ class FeedImageController: ASViewController<ASDisplayNode> {
             return ASCenterLayoutSpec(centeringOptions: .XY, sizingOptions: .minimumXY, child: stack)
         }
     }
+    
+    
+    //2
+    // 0
+    // 1,2,3
+    // 4,5,6
+    
+    //1
+    // 0,1
+    // 2,3,4
+    // 5,6,7
+    
+    //0
+    // 0,1,2
+    // 3,4,5
+    // 6,7,8
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
