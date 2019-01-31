@@ -15,7 +15,7 @@ class FeedImageController: ASViewController<ASDisplayNode> {
         
         var nodes: [ASLayoutElement] = []
         
-        for result in [[1,2], [1,2,3], [1,2,3]] {
+        for result in [[1,2], [1,2,3]] {
             let stack = ASStackLayoutSpec.horizontal()
             stack.spacing = 4
             nodes.append(stack)
@@ -24,7 +24,7 @@ class FeedImageController: ASViewController<ASDisplayNode> {
                 let imageNode = ASNetworkImageNode()
                 imageNode.backgroundColor = ASDisplayNodeDefaultPlaceholderColor()
                 imageNode.style.preferredSize = CGSize(width: 80, height: 80)
-                let ratio = ASRatioLayoutSpec(ratio: 1, child: imageNode)
+                let ratio = ASRatioLayoutSpec(ratio: result.count == 1 ? 160 / 248 : 1, child: imageNode)
                 ratio.style.flexGrow = 1
                 node.addSubnode(imageNode)
                 imageNodes.append(ratio)
