@@ -17,7 +17,7 @@ class FeedImageController: ASViewController<ASDisplayNode> {
         
         let count = 7
         let v = count % 3
-        for i in 0 ..< count {
+        for i in (0 ..< count).reversed() {
             let imageNode = ASNetworkImageNode()
             imageNode.backgroundColor = ASDisplayNodeDefaultPlaceholderColor()
             let preferredSize: CGSize
@@ -30,13 +30,13 @@ class FeedImageController: ASViewController<ASDisplayNode> {
             }
             imageNode.style.preferredSize = preferredSize
             node.addSubnode(imageNode)
-            if nodes.isEmpty || i % 3 == 0 {
+            if nodes.isEmpty || abs(i-count+1) % 3 == 0 {
                 let stack = ASStackLayoutSpec.horizontal()
                 stack.spacing = 4
                 stack.children = [imageNode]
                 nodes.insert(stack, at: 0)
             } else {
-                nodes[i/3].children?.append(imageNode)
+                nodes[0].children?.insert(imageNode, at: 0)
             }
         }
         
