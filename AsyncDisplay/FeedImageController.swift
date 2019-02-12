@@ -15,28 +15,29 @@ class FeedImageController: ASViewController<ASDisplayNode> {
         
         var nodes: [ASStackLayoutSpec] = []
         
-        let count = 5
-        let v = count % 3
+        let count = 9
+        let offset = count % 3
         for i in 0 ..< count {
             let imageNode = ASNetworkImageNode()
             imageNode.backgroundColor = ASDisplayNodeDefaultPlaceholderColor()
             let preferredSize: CGSize
-            if v == 1 && v > i {
+            if offset == 1 && offset > i {
                 preferredSize = CGSize(width: 248, height: 160)
-            } else if v == 2 && v > i {
+            } else if offset == 2 && offset > i {
                 preferredSize = CGSize(width: 122, height: 122)
             } else {
                 preferredSize = CGSize(width: 80, height: 80)
             }
             imageNode.style.preferredSize = preferredSize
             node.addSubnode(imageNode)
-            if nodes.isEmpty || (i + 3 - v) % 3 == 0 {
+            let n = offset > 0 ? i + 3 - offset : i
+            if nodes.isEmpty || n % 3 == 0 {
                 let stack = ASStackLayoutSpec.horizontal()
                 stack.spacing = 4
                 stack.children = [imageNode]
                 nodes.append(stack)
             } else {
-                nodes[(i + 3 - v)/3].children?.append(imageNode)
+                nodes[n/3].children?.append(imageNode)
             }
         }
         
