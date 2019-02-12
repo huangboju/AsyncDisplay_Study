@@ -53,7 +53,7 @@
     _commentsCount            = [[photoDictionary objectForKey:@"comments_count"] integerValue];
     _likesCount               = [[photoDictionary objectForKey:@"positive_votes_count"] integerValue];
     
-    NSString *urlString       = [photoDictionary objectForKey:@"image_url"];
+    NSString *urlString       = [photoDictionary objectForKey:@"image_url"][0];
     _URL                      = urlString ? [NSURL URLWithString:urlString] : nil;
     
     _location                 = [[LocationModel alloc] initWith500pxPhoto:photoDictionary];
