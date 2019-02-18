@@ -107,8 +107,7 @@ class PostNode: ASCellNode {
         
         // User pic
         avatarNode.backgroundColor = ASDisplayNodeDefaultPlaceholderColor()
-        avatarNode.style.width = ASDimensionMakeWithPoints(44)
-        avatarNode.style.height = ASDimensionMakeWithPoints(44)
+        avatarNode.style.preferredSize = CGSize(width: 44, height: 44)
         avatarNode.cornerRadius = 22.0
         avatarNode.url = URL(string: post.photo)
         avatarNode.imageModificationBlock = { image in
