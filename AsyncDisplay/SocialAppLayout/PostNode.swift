@@ -206,7 +206,7 @@ class PostNode: ASCellNode {
         // Horizontal spec for avatar
         let avatarContentSpec = ASStackLayoutSpec(direction: .horizontal, spacing: 8, justifyContent: .start, alignItems: .start, children: [avatarNode, contentSpec])
 
-        return ASInsetLayoutSpec(insets: UIEdgeInsets.init(top: 10, left: 10, bottom: 10, right: 10), child: avatarContentSpec)
+        return ASInsetLayoutSpec(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), child: avatarContentSpec)
     }
 
     override func layout() {
