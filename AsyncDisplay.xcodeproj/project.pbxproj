@@ -102,6 +102,7 @@
 		D82333431ECC4ED200FF3945 /* CardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82333421ECC4ED200FF3945 /* CardModel.swift */; };
 		D82333531ECD34BA00FF3945 /* StackLayoutController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82333521ECD34BA00FF3945 /* StackLayoutController.swift */; };
 		D87AE5D11EC75E740012B866 /* WBStatusCardNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87AE5D01EC75E740012B866 /* WBStatusCardNode.swift */; };
+		F7454975221D735A00F83D0D /* AnimationVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7454974221D735A00F83D0D /* AnimationVC.swift */; };
 		F79BF9002201D1BC00D22637 /* FeedImageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79BF8FF2201D1BC00D22637 /* FeedImageController.swift */; };
 /* End PBXBuildFile section */
 
@@ -239,6 +240,7 @@
 		D82333421ECC4ED200FF3945 /* CardModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardModel.swift; sourceTree = "<group>"; };
 		D82333521ECD34BA00FF3945 /* StackLayoutController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StackLayoutController.swift; sourceTree = "<group>"; };
 		D87AE5D01EC75E740012B866 /* WBStatusCardNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WBStatusCardNode.swift; sourceTree = "<group>"; };
+		F7454974221D735A00F83D0D /* AnimationVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationVC.swift; sourceTree = "<group>"; };
 		F79BF8FF2201D1BC00D22637 /* FeedImageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedImageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -319,6 +321,7 @@
 				D8206A0B1EC3F49D00405EB0 /* Bridging.h */,
 				D82333521ECD34BA00FF3945 /* StackLayoutController.swift */,
 				F79BF8FF2201D1BC00D22637 /* FeedImageController.swift */,
+				F7454974221D735A00F83D0D /* AnimationVC.swift */,
 			);
 			path = AsyncDisplay;
 			sourceTree = "<group>";
@@ -830,6 +833,7 @@
 				D82333231ECBE55500FF3945 /* PhotoCellNode.swift in Sources */,
 				D8206A8F1EC40F3500405EB0 /* CardCellNode.swift in Sources */,
 				D8206A751EC40F3500405EB0 /* RandomCoreGraphicsNode.m in Sources */,
+				F7454975221D735A00F83D0D /* AnimationVC.swift in Sources */,
 				D8206AAD1EC415F900405EB0 /* WeiBoCellNode.swift in Sources */,
 				D8206A8E1EC40F3500405EB0 /* AnimalTableNodeController.swift in Sources */,
 				D82333401ECC4E5600FF3945 /* ProfileModel.swift in Sources */,

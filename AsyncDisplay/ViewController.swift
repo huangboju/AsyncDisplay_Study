@@ -51,6 +51,9 @@ class ViewController: UIViewController {
         [
             StackLayoutController.self,
             FeedImageController.self
+        ],
+        [
+            AnimationVC.self
         ]
     ]
 
