@@ -135,7 +135,7 @@ class PhotoWithOutsetIconOverlay: LayoutExampleNode {
         iconNode = ASNetworkImageNode()
         iconNode.url = URL(string: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ8dklGGjkCYbPsk7osPdmYWtd1N7mpEXgXvfU337cZrBwUSaa6")
 
-        iconNode.imageModificationBlock = { image in  // FIXME: in framework autocomplete for setImageModificationBlock line seems broken
+        iconNode.imageModificationBlock = { image, _ in  // FIXME: in framework autocomplete for setImageModificationBlock line seems broken
             let profileImageSize = CGSize(width: 60, height: 60)
             return image.makeCircularImage(with: profileImageSize, withBorderWidth: 10)
         }

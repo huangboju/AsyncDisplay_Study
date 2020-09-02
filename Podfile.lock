@@ -1,45 +1,43 @@
 PODS:
-  - DateToolsSwift (4.0.0)
-  - IGListKit (3.4.0):
-    - IGListKit/Default (= 3.4.0)
-  - IGListKit/Default (3.4.0):
-    - IGListKit/Diffing
-  - IGListKit/Diffing (3.4.0)
-  - PINCache (3.0.1-beta.6):
-    - PINCache/Arc-exception-safe (= 3.0.1-beta.6)
-    - PINCache/Core (= 3.0.1-beta.6)
-  - PINCache/Arc-exception-safe (3.0.1-beta.6):
+  - DateToolsSwift (5.0.0)
+  - IGListDiffKit (4.0.0)
+  - IGListKit (4.0.0):
+    - IGListDiffKit (= 4.0.0)
+  - PINCache (3.0.1-beta.8):
+    - PINCache/Arc-exception-safe (= 3.0.1-beta.8)
+    - PINCache/Core (= 3.0.1-beta.8)
+  - PINCache/Arc-exception-safe (3.0.1-beta.8):
     - PINCache/Core
-  - PINCache/Core (3.0.1-beta.6):
-    - PINOperation (~> 1.1.0)
+  - PINCache/Core (3.0.1-beta.8):
+    - PINOperation (~> 1.1.1)
   - PINOperation (1.1.2)
-  - PINRemoteImage/Core (3.0.0-beta.13):
+  - PINRemoteImage/Core (3.0.0):
     - PINOperation
-  - PINRemoteImage/iOS (3.0.0-beta.13):
+  - PINRemoteImage/iOS (3.0.0):
     - PINRemoteImage/Core
-  - PINRemoteImage/PINCache (3.0.0-beta.13):
-    - PINCache (= 3.0.1-beta.6)
+  - PINRemoteImage/PINCache (3.0.0):
+    - PINCache (= 3.0.1-beta.8)
     - PINRemoteImage/Core
   - SwiftyJSON (5.0.0)
-  - Texture (2.8.1):
-    - Texture/AssetsLibrary (= 2.8.1)
-    - Texture/Core (= 2.8.1)
-    - Texture/MapKit (= 2.8.1)
-    - Texture/Photos (= 2.8.1)
-    - Texture/PINRemoteImage (= 2.8.1)
-    - Texture/Video (= 2.8.1)
-  - Texture/AssetsLibrary (2.8.1):
+  - Texture (3.0.0):
+    - Texture/AssetsLibrary (= 3.0.0)
+    - Texture/Core (= 3.0.0)
+    - Texture/MapKit (= 3.0.0)
+    - Texture/Photos (= 3.0.0)
+    - Texture/PINRemoteImage (= 3.0.0)
+    - Texture/Video (= 3.0.0)
+  - Texture/AssetsLibrary (3.0.0):
     - Texture/Core
-  - Texture/Core (2.8.1)
-  - Texture/MapKit (2.8.1):
+  - Texture/Core (3.0.0)
+  - Texture/MapKit (3.0.0):
     - Texture/Core
-  - Texture/Photos (2.8.1):
+  - Texture/Photos (3.0.0):
     - Texture/Core
-  - Texture/PINRemoteImage (2.8.1):
-    - PINRemoteImage/iOS (= 3.0.0-beta.13)
+  - Texture/PINRemoteImage (3.0.0):
+    - PINRemoteImage/iOS (~> 3.0.0)
     - PINRemoteImage/PINCache
     - Texture/Core
-  - Texture/Video (2.8.1):
+  - Texture/Video (3.0.0):
     - Texture/Core
 
 DEPENDENCIES:
@@ -49,8 +47,9 @@ DEPENDENCIES:
   - Texture
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  trunk:
     - DateToolsSwift
+    - IGListDiffKit
     - IGListKit
     - PINCache
     - PINOperation
@@ -59,14 +58,15 @@ SPEC REPOS:
     - Texture
 
 SPEC CHECKSUMS:
-  DateToolsSwift: 875d97ff9e3a5d54abdd67a269b3f51c757b71ab
-  IGListKit: 7a5d788e9fb746bcd402baa8e8b24bc3bd2a5a07
-  PINCache: d195fdba255283f7e9900a55e3cced377f431f9b
+  DateToolsSwift: 4207ada6ad615d8dc076323d27037c94916dbfa6
+  IGListDiffKit: 665d6cf43ce726e676013db9c7d6c4294259b6b2
+  IGListKit: fd5a5d21935298f5849fa49d426843cff97b77c7
+  PINCache: 534fd41d358d828dfdf227a0d327f3673a65e20b
   PINOperation: 24b774353ca248fcf87d67b2d61eef42087c125a
-  PINRemoteImage: d6d51c5d2adda55f1ce30c96e850b6c4ebd2856a
+  PINRemoteImage: e2b89e19fb6e77ffc099f9d9f3b3fe1745e3f9f9
   SwiftyJSON: 36413e04c44ee145039d332b4f4e2d3e8d6c4db7
-  Texture: 8ecf6984065a1e54f06bf97b349ecca28582acd7
+  Texture: 2f109e937850d94d1d07232041c9c7313ccddb81
 
 PODFILE CHECKSUM: eb1c5c33f5c512bf6899061e84ac1fc83de13ca3
 
-COCOAPODS: 1.7.2
+COCOAPODS: 1.9.3

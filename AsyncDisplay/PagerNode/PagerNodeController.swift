@@ -8,10 +8,10 @@
 
 import AsyncDisplayKit
 
-class PagerNodeController: ASViewController<ASPagerNode> {
+class PagerNodeController: ASDKViewController<ASPagerNode> {
     
     
-    init() {
+    override init() {
         super.init(node: ASPagerNode())
         
         title = "Pages"

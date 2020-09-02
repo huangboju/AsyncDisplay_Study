@@ -6,9 +6,9 @@
 //  Copyright © 2017年 伯驹 黄. All rights reserved.
 //
 
-class StackLayoutController: ASViewController<ASDisplayNode> {
+class StackLayoutController: ASDKViewController<ASDisplayNode> {
     
-    init() {
+    override init() {
         super.init(node: ASDisplayNode())
         let node1 = ASDisplayNode()
 //        node1.style.preferredSize = CGSize(width: 100, height: 20)

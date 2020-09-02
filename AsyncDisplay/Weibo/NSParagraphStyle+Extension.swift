@@ -21,6 +21,8 @@ extension CTLineBreakMode {
             return .byTruncatingTail
         case .byTruncatingMiddle:
             return .byTruncatingMiddle
+        @unknown default:
+            fatalError()
         }
     }
 }
@@ -34,6 +36,8 @@ extension CTWritingDirection {
             return .leftToRight
         case .rightToLeft:
             return .rightToLeft
+        @unknown default:
+            fatalError()
         }
     }
 }

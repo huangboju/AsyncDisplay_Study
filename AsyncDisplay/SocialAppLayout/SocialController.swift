@@ -8,13 +8,13 @@
 
 import AsyncDisplayKit
 
-class SocialController: ASViewController<ASTableNode> {
+class SocialController: ASDKViewController<ASTableNode> {
     
     var tableNode: ASTableNode!
     
     var data: [Post] = []
     
-    init() {
+    override init() {
         tableNode = ASTableNode(style: .plain)
         tableNode.inverted = true
         super.init(node: tableNode)

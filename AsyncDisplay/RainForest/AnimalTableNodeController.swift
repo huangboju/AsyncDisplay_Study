@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-class AnimalTableNodeController: ASViewController<ASDisplayNode> {
+class AnimalTableNodeController: ASDKViewController<ASDisplayNode> {
     var animals: [RainforestCardInfo]!
     let tableNode: ASTableNode!
 

@@ -8,11 +8,11 @@
 
 import AsyncDisplayKit
 
-class HorizontalScrollController: ASViewController<ASDisplayNode> {
+class HorizontalScrollController: ASDKViewController<ASDisplayNode> {
     
     var tableNode: ASTableNode!
     
-    init() {
+    override init() {
         tableNode = ASTableNode(style: .plain)
         super.init(node: tableNode)
         tableNode.dataSource = self

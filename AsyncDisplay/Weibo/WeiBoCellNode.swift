@@ -52,7 +52,7 @@ class WeiBoMainNode: ASDisplayNode {
 
         vipBackgroundNode = ASNetworkImageNode()
         vipBackgroundNode.url = item.vipUrl
-        vipBackgroundNode.imageModificationBlock = { image in
+        vipBackgroundNode.imageModificationBlock = { image, _ in
             return UIImage(cgImage: image.cgImage!, scale: 2, orientation: image.imageOrientation)
         }
         vipBackgroundNode.isLayerBacked = true

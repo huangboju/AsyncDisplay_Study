@@ -98,7 +98,7 @@ class PostNode: ASCellNode {
             mediaNode?.cornerRadius = 4.0
             mediaNode?.url = URL(string: post.media)
             mediaNode?.delegate = self
-            mediaNode?.imageModificationBlock = { image in
+            mediaNode?.imageModificationBlock = { image, _ in
                 return image.corner(with: 8)
             }
             addSubnode(mediaNode!)
@@ -110,7 +110,7 @@ class PostNode: ASCellNode {
         avatarNode.style.preferredSize = CGSize(width: 44, height: 44)
         avatarNode.cornerRadius = 22.0
         avatarNode.url = URL(string: post.photo)
-        avatarNode.imageModificationBlock = { image in
+        avatarNode.imageModificationBlock = { image, _ in
             return image.corner(with: 44)
             
         }

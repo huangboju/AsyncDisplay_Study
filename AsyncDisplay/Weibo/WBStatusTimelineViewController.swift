@@ -9,7 +9,7 @@
 import SwiftyJSON
 import AsyncDisplayKit
 
-class WBStatusTimelineViewController: ASViewController<ASTableNode> {
+class WBStatusTimelineViewController: ASDKViewController<ASTableNode> {
 
     fileprivate var tableNode: ASTableNode? {
         return node
@@ -23,7 +23,7 @@ class WBStatusTimelineViewController: ASViewController<ASTableNode> {
         print("WBStatusTimelineViewController 释放")
     }
 
-    init() {
+    override init() {
         super.init(node: ASTableNode(style: .plain))
         tableNode?.delegate = self
         tableNode?.dataSource = self

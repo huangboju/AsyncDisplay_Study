@@ -28,7 +28,7 @@ class WBStatusProfileNode: ASDisplayNode {
         avatarNode.style.height = ASDimensionMake(side)
         avatarNode.cornerRadius = side / 2
         avatarNode.url = item.avatarUrl
-        avatarNode.imageModificationBlock = { image in
+        avatarNode.imageModificationBlock = { image, _ in
             return image.corner(with: side)
         }
         addSubnode(avatarNode)

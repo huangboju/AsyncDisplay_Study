@@ -8,9 +8,9 @@
 
 import UIKit
 
-class FeedImageController: ASViewController<ASDisplayNode> {
+class FeedImageController: ASDKViewController<ASDisplayNode> {
 
-    init() {
+    override init() {
         super.init(node: ASDisplayNode())
         
         var nodes: [ASStackLayoutSpec] = []

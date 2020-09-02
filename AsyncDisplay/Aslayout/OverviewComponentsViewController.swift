@@ -8,11 +8,11 @@
 
 import AsyncDisplayKit
 
-class OverviewComponentsViewController: ASViewController<ASDisplayNode> {
+class OverviewComponentsViewController: ASDKViewController<ASDisplayNode> {
 
     var tableNode: ASTableNode
 
-    init() {
+    override init() {
         tableNode = ASTableNode()
         super.init(node: tableNode)
         tableNode.autoresizingMask = [.flexibleWidth, .flexibleHeight]

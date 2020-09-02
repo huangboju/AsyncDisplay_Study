@@ -12,7 +12,7 @@ private let kMaxLitterSize = 100       // max number of kitten cells allowed in 
 
 import AsyncDisplayKit
 
-class KittensController: ASViewController<ASDisplayNode> {
+class KittensController: ASDKViewController<ASDisplayNode> {
     
     var tableNode: ASTableNode!
     
@@ -20,7 +20,7 @@ class KittensController: ASViewController<ASDisplayNode> {
 
     var blurbNodeIndexPath = IndexPath(row: 0, section: 0)
 
-    init() {
+    override init() {
         tableNode = ASTableNode(style: .plain)
         super.init(node: tableNode)
 

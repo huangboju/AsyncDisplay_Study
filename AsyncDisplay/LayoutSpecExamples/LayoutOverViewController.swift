@@ -8,13 +8,13 @@
 
 import AsyncDisplayKit
 
-class LayoutOverViewController: ASViewController<ASDisplayNode> {
+class LayoutOverViewController: ASDKViewController<ASDisplayNode> {
     
     var tableNode: ASTableNode!
     
     fileprivate lazy var layoutExamples: [LayoutExampleNode.Type] = []
     
-    init() {
+    override init() {
         tableNode = ASTableNode()
 
         super.init(node: tableNode)

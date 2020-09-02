@@ -54,7 +54,7 @@ class CardCellNode: ASCellNode {
 
         //Background Image
         backgroundImageNode.placeholderFadeDuration = 0.15
-        backgroundImageNode.imageModificationBlock = { image in
+        backgroundImageNode.imageModificationBlock = { image, _ in
             // 需要上面设置代理
             let newImage = UIImage.resize(image, newSize: CGSize(width: 100, height: 300)).applyBlur(withRadius: 10, tintColor: UIColor(white: 0.5, alpha: 0.3), saturationDeltaFactor: 1.8, maskImage: nil)
             return newImage ?? image

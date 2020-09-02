@@ -46,7 +46,7 @@ class PhotoCellNode: ASCellNode {
         userAvatarImageNode.url = photo.ownerUserProfile.userPicURL   // FIXME: make round
         
         // FIXME: autocomplete for this line seems broken
-        userAvatarImageNode.imageModificationBlock = { image in
+        userAvatarImageNode.imageModificationBlock = { image, _ in
             let profileImageSize = CGSize(width: USER_IMAGE_HEIGHT, height: USER_IMAGE_HEIGHT)
             return image.makeCircularImage(with: profileImageSize)
         }

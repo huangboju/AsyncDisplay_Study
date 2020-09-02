@@ -8,7 +8,7 @@
 
 import AsyncDisplayKit
 
-class LayoutExampleViewController: ASViewController<ASDisplayNode> {
+class LayoutExampleViewController: ASDKViewController<ASDisplayNode> {
     
     var customNode: LayoutExampleNode!
     

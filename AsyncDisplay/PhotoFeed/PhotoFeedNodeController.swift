@@ -12,7 +12,7 @@ class PhotoFeedNodeController: PhotoFeedBaseController {
     
     var tableNode = ASTableNode()
     
-    init() {
+    override init() {
         super.init(node: tableNode)
         
         navigationItem.title = "ASDK"
